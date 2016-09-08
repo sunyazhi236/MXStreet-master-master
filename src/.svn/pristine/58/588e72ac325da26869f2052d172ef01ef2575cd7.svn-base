@@ -1,0 +1,255 @@
+//
+//  MainPageTabBarController.m
+//  mxj
+//
+//  Created by 齐乐乐 on 15/11/10.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "MainPageTabBarController.h"
+
+@interface MainPageTabBarController ()
+{
+    NSInteger btnFlag; //0：关注 1:人气 2:同城
+    NSTimer *timer;    //广告轮播定时器
+}
+
+@end
+
+@implementation MainPageTabBarController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    //修改发布街拍按钮的风格
+    self.photoListBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+    UIImage * normalImage = [[UIImage imageNamed:@"camera"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [self.photoListBarItem setImage:normalImage];
+    [self.photoListBarItem setSelectedImage:normalImage];
+    [self.mainPageTableView setDelegate:self];
+    [self.mainPageTableView setDataSource:self];
+    
+    btnFlag = 0; //默认选中关注按钮
+    [self changeBtnStatus];
+    
+    //设置广告ScrollView
+    [self.bannerScrollView setContentSize:CGSizeMake(self.bannerImageView.frame.size.width *3, self.bannerImageView.frame.size.height)];
+    [self.bannerScrollView setContentOffset:CGPointMake(0, 0)];
+    UIImageView *bannerSecondImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, self.bannerImageView.frame.size.height)];
+    [bannerSecondImageView setImage:[UIImage imageNamed:@"banner_7"]];
+    UIImageView *bannerThirdImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, self.bannerImageView.frame.size.height)];
+    [bannerThirdImageView setImage:[UIImage imageNamed:@"banner_7"]];
+    [self.bannerScrollView addSubview:bannerSecondImageView];
+    [self.bannerScrollView addSubview:bannerThirdImageView];
+    
+    [self.bannerScrollView setShowsHorizontalScrollIndicator:NO];
+    [self.bannerScrollView setShowsVerticalScrollIndicator:NO];
+    [self.bannerScrollView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"banner-bg_7"]]];
+    [self.bannerScrollView setDelegate:self];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    //广告自动轮播
+    timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(startAutoChangeBanner) userInfo:nil repeats:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    if (timer) {
+        [timer invalidate];
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - TableView代理
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger rowNum;
+    switch (section) {
+        case 0:
+            rowNum = 2;
+            break;
+        case 1:
+            rowNum = 2;
+            break;
+        default:
+            break;
+    }
+    return rowNum;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat height = 0;
+    switch (indexPath.section) {
+        case 0:
+        {
+            switch (indexPath.row) {
+                case 0:
+                    break;
+                case 1:
+                    height = self.imageTableCell.frame.size.height;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+            break;
+        case 1:
+        {
+            switch (indexPath.row) {
+                case 0:
+                    height = 800;
+                    break;
+                case 1:
+                    height = 800;
+                default:
+                    break;
+            }
+        }
+            break;
+        default:
+            break;
+    }
+
+    return height;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+        {
+            switch (indexPath.row) {
+                case 0:
+                    break;
+                case 1:
+                {
+                    return self.imageTableCell;
+                }
+                default:
+                    break;
+            }
+        }
+            break;
+        case 1:
+        {
+            
+            switch (indexPath.row) {
+                case 0:
+                {
+                    UITableViewCell *tableCell = [[UITableViewCell alloc] init];
+                    [tableCell setBackgroundColor:[UIColor blueColor]];
+                    return tableCell;
+                }
+                default:
+                    break;
+            }
+        }
+        default:
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return 0;
+        case 1:
+            return self.btnTableCell.frame.size.height;
+        default:
+            break;
+    }
+    return 0;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (1 == section) {
+        return self.btnTableCell;
+    }
+    
+    return [[UIView alloc] init];
+}
+
+#pragma mark -广告ScrollView代理方法
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSInteger index = fabs(scrollView.contentOffset.x/scrollView.frame.size.width);
+    self.bannerPageCtrl.currentPage = index;
+}
+
+#pragma mark -按钮点击事件处理
+//关注按钮点击事件
+- (IBAction)guanzhuBtnClick:(id)sender {
+    btnFlag = 0;
+    [self changeBtnStatus];
+}
+
+//人气按钮点击事件
+- (IBAction)renqiBtnClick:(id)sender {
+    btnFlag = 1;
+    [self changeBtnStatus];
+}
+
+//同城按钮点击事件
+- (IBAction)tongchengBtnClick:(id)sender {
+    btnFlag = 2;
+    [self changeBtnStatus];
+}
+
+#pragma mark -共通方法
+//修改菜单按钮的状态
+-(void)changeBtnStatus
+{
+    switch (btnFlag) {
+        case 0: //关注
+            [self.guanzhuBtn setSelected:YES];
+            [self.renqiBtn setSelected:NO];
+            [self.tongcBtn setSelected:NO];
+            [self.cellBackImageView setImage:[UIImage imageNamed:@"left_7"]];
+            break;
+        case 1: //人气
+            [self.guanzhuBtn setSelected:NO];
+            [self.renqiBtn setSelected:YES];
+            [self.tongcBtn setSelected:NO];
+            [self.cellBackImageView setImage:[UIImage imageNamed:@"middle_7"]];
+            break;
+        case 2: //同城
+            [self.guanzhuBtn setSelected:NO];
+            [self.renqiBtn setSelected:NO];
+            [self.tongcBtn setSelected:YES];
+            [self.cellBackImageView setImage:[UIImage imageNamed:@"right_7"]];
+            break;
+        default:
+            break;
+    }
+}
+
+//广告自动轮播
+-(void)startAutoChangeBanner
+{
+    if (self.bannerScrollView.contentOffset.x < (self.bannerScrollView.frame.size.width * 2)) {
+        CGFloat x = self.bannerScrollView.contentOffset.x + self.bannerScrollView.frame.size.width;
+        [self.bannerScrollView setContentOffset:CGPointMake(x, self.bannerScrollView.contentOffset.y) animated:YES];
+    } else {
+        [self.bannerScrollView setContentOffset:CGPointMake(0, self.bannerScrollView.contentOffset.y) animated:YES];
+    }
+    NSInteger index = fabs(self.bannerScrollView.contentOffset.x/self.bannerScrollView.frame.size.width);
+    self.bannerPageCtrl.currentPage = index;
+}
+
+@end

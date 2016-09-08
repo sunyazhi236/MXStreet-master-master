@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SexSetViewController">
+            <connections>
+                <outlet property="ManCell" destination="sAZ-hl-GnG" id="iAu-F9-Res"/>
+                <outlet property="manCellImageView" destination="dkX-hX-DL3" id="XTk-o0-3GQ"/>
+                <outlet property="sexSetTableView" destination="CS5-CE-EAe" id="vvR-q8-EqB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="womenCell" destination="ILp-0S-2Eq" id="ijw-gb-gTs"/>
+                <outlet property="womenCellImageView" destination="ohw-ei-8wq" id="ztY-fH-Kz8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="KG0-By-y12">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CS5-CE-EAe">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAE-jw-5U3">
+                    <rect key="frame" x="50" y="518" width="75" height="26"/>
+                    <animations/>
+                    <state key="normal" title="取消" backgroundImage="btn02_12_1_2">
+                        <color key="titleColor" red="0.71764705880000002" green="0.023529411760000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jT-gr-wfD">
+                    <rect key="frame" x="190" y="518" width="75" height="26"/>
+                    <animations/>
+                    <state key="normal" title="完成" backgroundImage="btn12_1_2">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CS5-CE-EAe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0Xv-Gg-x8b"/>
+                <constraint firstAttribute="bottom" secondItem="2jT-gr-wfD" secondAttribute="bottom" constant="24" id="5g6-XE-Uca"/>
+                <constraint firstAttribute="bottom" secondItem="CS5-CE-EAe" secondAttribute="bottom" constant="68" id="75x-ZO-Jtu"/>
+                <constraint firstAttribute="trailing" secondItem="CS5-CE-EAe" secondAttribute="trailing" id="jZm-nN-shf"/>
+                <constraint firstItem="CS5-CE-EAe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="obS-M1-UVC"/>
+                <constraint firstAttribute="bottom" secondItem="zAE-jw-5U3" secondAttribute="bottom" constant="24" id="yYO-6i-p72"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="228" y="319"/>
+        </view>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sAZ-hl-GnG">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sAZ-hl-GnG" id="CPP-ag-mvX">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="5ia-pj-lAd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="row12_1_2" translatesAutoresizingMaskIntoConstraints="NO" id="v9B-kl-3Gx">
+                        <rect key="frame" x="0.0" y="10" width="320" height="44"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line12_1_2" translatesAutoresizingMaskIntoConstraints="NO" id="nZF-xf-4vJ">
+                        <rect key="frame" x="10" y="53" width="300" height="1"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKd-PK-kmf">
+                        <rect key="frame" x="8" y="22" width="17" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="choose12_1_2" translatesAutoresizingMaskIntoConstraints="NO" id="dkX-hX-DL3">
+                        <rect key="frame" x="296" y="25" width="16" height="16"/>
+                        <animations/>
+                    </imageView>
+                </subviews>
+                <animations/>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="599" y="57"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ILp-0S-2Eq">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ILp-0S-2Eq" id="kU3-w3-o0v">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="row12_1_2" translatesAutoresizingMaskIntoConstraints="NO" id="qPs-rW-lGT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="choose12_1_2" translatesAutoresizingMaskIntoConstraints="NO" id="ohw-ei-8wq">
+                        <rect key="frame" x="296" y="13" width="16" height="16"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="女" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPi-Jo-LRx">
+                        <rect key="frame" x="8" y="12" width="17" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="599" y="147"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bg" width="640" height="1136"/>
+        <image name="btn02_12_1_2" width="75" height="26"/>
+        <image name="btn12_1_2" width="75" height="26"/>
+        <image name="choose12_1_2" width="16" height="16"/>
+        <image name="line12_1_2" width="1" height="1"/>
+        <image name="row12_1_2" width="320" height="44"/>
+    </resources>
+</document>

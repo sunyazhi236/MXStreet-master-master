@@ -1,0 +1,65 @@
+//
+//  RegisterCreatePersonInfViewController.m
+//  mxj
+//  P4-1注册-创建个人资料ViewController实现文件
+//  Created by 齐乐乐 on 15/11/9.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "RegisterCreatePersonInfViewController.h"
+#import "UserProtocolViewController.h"
+#import "SetAccountViewController.h"
+
+@interface RegisterCreatePersonInfViewController ()
+
+@end
+
+@implementation RegisterCreatePersonInfViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    //显示navigationBar
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    //设置导航栏透明
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                 forBarPosition:UIBarPositionAny
+                                                     barMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+    //设置导航栏标题
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSFontAttributeName:[UIFont systemFontOfSize:17],
+       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationItem setTitle:@"创建个人资料1/3"];
+    //设置导航栏右上角的下一步按钮
+    UIBarButtonItem *nextBtn = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnClick)];
+    [nextBtn setTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = nextBtn;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//下一步按钮的点击事件
+-(void)nextBtnClick
+{
+    //跳转至下一步界面
+    SetAccountViewController *setAccountViewCtrl = [[SetAccountViewController alloc] initWithNibName:@"SetAccountViewController" bundle:nil];
+    [self.navigationController pushViewController:setAccountViewCtrl animated:YES];
+}
+
+//用户协议按钮点击事件
+- (IBAction)userProtocolBtnClick:(id)sender {
+    UserProtocolViewController *userProtocolViewCtrl = [[UserProtocolViewController alloc] initWithNibName:@"UserProtocolViewController" bundle:nil];
+    [self.navigationController pushViewController:userProtocolViewCtrl animated:YES];
+}
+
+@end

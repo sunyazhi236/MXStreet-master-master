@@ -1,0 +1,91 @@
+//
+//  PositionSetViewController.m
+//  mxj
+//  P7-3-1设置位置信息
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "PositionSetViewController.h"
+#import "PositionSetCell.h"
+
+@interface PositionSetViewController ()
+{
+    NSArray *labelNameArray; //位置名称数组
+}
+
+@end
+
+@implementation PositionSetViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    labelNameArray = [[NSArray alloc] initWithObjects:
+                      @"恒隆广场",
+                      @"南京西路",
+                      nil];
+    self.positionSetTableView.delegate = self;
+    self.positionSetTableView.dataSource = self;
+    self.positionSetTextFiled.delegate = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PositionSetCell *positionSetCell = [tableView dequeueReusableCellWithIdentifier:@"PositionSetCell"];
+    if (!positionSetCell) {
+        positionSetCell = [[[NSBundle mainBundle] loadNibNamed:@"PositionSetCell" owner:self options:nil] lastObject];
+    }
+    [positionSetCell.labelName setText:[labelNameArray objectAtIndex:indexPath.row]];
+    switch (indexPath.row) {
+        case 0:
+        {
+            [positionSetCell.labelImageView setHidden:NO];
+        }
+            break;
+        case 1:
+        {
+            [positionSetCell.labelImageView setHidden:YES];
+        }
+            break;
+        default:
+            break;
+    }
+    return positionSetCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+#pragma mark -TextField代理方法
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.positionSetTextFiled resignFirstResponder];
+    return YES;
+}
+
+#pragma mark -按钮点击事件
+//返回按钮点击事件
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+@end

@@ -1,0 +1,16 @@
+//
+//  EditPhotoCell.h
+//  mxj
+//  P7-2-2编辑照片
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface EditPhotoCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *linkImageView;  //链接图标
+@property (strong, nonatomic) IBOutlet UILabel *linkName;           //标签名称
+@property (strong, nonatomic) IBOutlet UITextField *linkTextField;  //链接地址
+
+@end

@@ -1,0 +1,18 @@
+//
+//  SearchResultTwoCell.h
+//  mxj
+//  P7-1-1搜索结果页（2）
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface SearchResultThreeCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UILabel *searchResultLabel; //结果Cell标签
+@property (strong, nonatomic) IBOutlet UIImageView *searchResultLineImageView; //结果Cell下划线
+@property (weak, nonatomic) IBOutlet EGOImageView *personImageView;  //个人头像
+
+
+@end

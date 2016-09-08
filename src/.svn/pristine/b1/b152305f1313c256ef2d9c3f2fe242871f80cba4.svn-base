@@ -1,0 +1,13 @@
+//
+//  StreetPhotoDetailCell.h
+//  mxj
+//  P7-4街拍详情用Cell
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface StreetPhotoDetailCell : UITableViewCell
+
+@end

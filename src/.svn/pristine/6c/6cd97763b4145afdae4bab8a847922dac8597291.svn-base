@@ -1,0 +1,18 @@
+//
+//  PersonMainPageViewController.h
+//  mxj
+//  P9-0个人主页
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+#import "ImageWaterView.h"
+#import "SVPullToRefresh.h"
+#import "JSONKit.h"
+
+@interface PersonMainPageViewController : BaseViewController
+
+@property(nonatomic, strong) ImageWaterView *waterView; //瀑布流
+
+@end

@@ -1,0 +1,17 @@
+//
+//  LabelListViewController.h
+//  mxj
+//  P7-1-2标签列表页
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface LabelListViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *labelListTableView; //标签列表TableView
+@property (strong, nonatomic) IBOutlet UITableViewCell *labelListOneCell; //首行Cell
+@property (strong, nonatomic) IBOutlet UITableViewCell *labelListTwoCell; //第二行Cell
+
+@end

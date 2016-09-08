@@ -1,0 +1,90 @@
+//
+//  PublishStreetPhotoViewController.m
+//  mxj
+//  P7-2发布街拍-手机相册
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "PublishStreetPhotoViewController.h"
+#import "PublishStreetPhotoCell.h"
+#import "TakePhotosViewController.h"
+#import "EditPhotoViewController.h"
+
+@interface PublishStreetPhotoViewController ()
+
+@end
+
+@implementation PublishStreetPhotoViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.publishStreetPhotoTableView.delegate = self;
+    self.publishStreetPhotoTableView.dataSource = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0: //首行
+            return self.firstCell;
+            break;
+        default:
+        {
+            PublishStreetPhotoCell *publishStreetPhotoCell = [tableView dequeueReusableCellWithIdentifier:@"PublishStreetPhotoCell"];
+            if (!publishStreetPhotoCell) {
+                publishStreetPhotoCell = [[[NSBundle mainBundle] loadNibNamed:@"PublishStreetPhotoCell" owner:self options:nil] lastObject];
+            }
+            return publishStreetPhotoCell;
+        }
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 78;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+#pragma mark -按钮点击事件
+//返回按钮点击事件
+- (IBAction)backBtnClick:(id)sender {
+    if (YES == self.intoFlag) {
+        [self.tabBarController setSelectedIndex:0];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+
+}
+
+//拍照按钮点击事件
+- (IBAction)takePhotoBtnClick:(id)sender {
+    TakePhotosViewController *takePhotoViewCtrl = [[TakePhotosViewController alloc] initWithNibName:@"TakePhotosViewController" bundle:nil];
+    [self.navigationController pushViewController:takePhotoViewCtrl animated:YES];
+}
+
+//下一步按钮点击事件
+- (IBAction)nextBtnClick:(id)sender {
+    EditPhotoViewController *editPhotoViewCtrl = [[EditPhotoViewController alloc] initWithNibName:@"EditPhotoViewController" bundle:nil];
+    [self.navigationController pushViewController:editPhotoViewCtrl animated:YES];
+}
+
+
+@end

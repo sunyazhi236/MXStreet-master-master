@@ -1,0 +1,119 @@
+//
+//  MyViewController.m
+//  mxj
+//  P9我的 视图控制器实现文件
+//  Created by 齐乐乐 on 15/11/13.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "MyViewController.h"
+#import "ConcernManViewController.h"
+#import "MeFansViewController.h"
+#import "SetViewController.h"
+#import "MyStreetPhotoViewController.h"
+#import "MyFavoriteViewController.h"
+
+@interface MyViewController ()
+
+@end
+
+@implementation MyViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.myTableView setDelegate:self];
+    [self.myTableView setDataSource:self];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return 79.5;
+        default:
+            return 44;
+    }
+    return 0;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:  //首行Cell
+            return self.firstTableCell;
+        case 1:  //关注Cell
+            return self.guangzhuTableCell;
+        case 2:  //粉丝Cell
+            return self.fensiTableCell;
+        case 3:  //收藏Cell
+            return self.shoucangTableCell;
+        case 4:  //设置Cell
+            return self.shezhiTableCell;
+        default:
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0: //首行Cell
+        {
+            MyStreetPhotoViewController *myStreetPhotoViewCtrl = [[MyStreetPhotoViewController alloc] initWithNibName:@"MyStreetPhotoViewController" bundle:nil];
+            [self.navigationController pushViewController:myStreetPhotoViewCtrl animated:YES];
+        }
+            break;
+        case 1: //关注的人
+        {
+            ConcernManViewController *concernManViewCtrl = [[ConcernManViewController alloc] initWithNibName:@"ConcernManViewController" bundle:nil];
+            [self.navigationController pushViewController:concernManViewCtrl animated:YES];
+        }
+            break;
+        case 2:  //我的粉丝
+        {
+            MeFansViewController *meFansViewCtrl = [[MeFansViewController alloc] initWithNibName:@"MeFansViewController" bundle:nil];
+            [self.navigationController pushViewController:meFansViewCtrl animated:YES];
+        }
+            break;
+        case 3: //我的收藏
+        {
+            MyFavoriteViewController *myFavoriteViewCtrl = [[MyFavoriteViewController alloc] initWithNibName:@"MyFavoriteViewController" bundle:nil];
+            [self.navigationController pushViewController:myFavoriteViewCtrl animated:YES];
+        }
+            break;
+        case 4:  //设置
+        {
+            SetViewController *setViewCtrl = [[SetViewController alloc] initWithNibName:@"SetViewController" bundle:nil];
+            [self.navigationController pushViewController:setViewCtrl animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+@end

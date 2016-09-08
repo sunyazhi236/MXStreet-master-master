@@ -1,0 +1,16 @@
+//
+//  userImageViewClickProtocol.h
+//  mxj
+//
+//  Created by 齐乐乐 on 15/11/20.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@protocol UserImageViewClickProtocol <NSObject>
+
+//cell上用户头像按钮点击事件
+-(void)imageViewClick:(int)indexPath;
+
+@end

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LabelListViewController">
+            <connections>
+                <outlet property="labelListOneCell" destination="lb9-FT-oDR" id="1Ao-PH-CmK"/>
+                <outlet property="labelListTableView" destination="zuC-nm-GRD" id="zeO-Jr-fa8"/>
+                <outlet property="labelListTwoCell" destination="JOE-ks-sog" id="ILT-Z2-D9y"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="nhh-LX-rP8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zuC-nm-GRD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zuC-nm-GRD" secondAttribute="trailing" id="9dk-vY-9L3"/>
+                <constraint firstItem="zuC-nm-GRD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NNq-8Y-sHv"/>
+                <constraint firstAttribute="bottom" secondItem="zuC-nm-GRD" secondAttribute="bottom" id="m7k-cG-H3P"/>
+                <constraint firstItem="zuC-nm-GRD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qbI-RF-gJE"/>
+            </constraints>
+            <point key="canvasLocation" x="245" y="293"/>
+        </view>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lb9-FT-oDR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lb9-FT-oDR" id="SGS-nd-9M4">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="floor7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="doN-MK-wMG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rabel7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="RQG-1K-6fR">
+                        <rect key="frame" x="8" y="5" width="40" height="40"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="街拍：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34D-CH-GjG">
+                        <rect key="frame" x="57" y="5" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWE-iE-79i">
+                        <rect key="frame" x="95" y="5" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="用户：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nht-k0-dOP">
+                        <rect key="frame" x="57" y="24" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="221" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2R-Jv-LIZ">
+                        <rect key="frame" x="95" y="24" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="614" y="34"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JOE-ks-sog">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JOE-ks-sog" id="rfs-PW-mMJ">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="184.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="5W5-HI-thZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="185"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="szZ-dM-2rd">
+                        <rect key="frame" x="163" y="10" width="150" height="175"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="Phj-O9-0G5">
+                        <rect key="frame" x="163" y="10" width="150" height="150"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shade7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="j9Y-VX-hYq">
+                        <rect key="frame" x="276" y="123" width="30" height="30"/>
+                        <animations/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-OF-Msw">
+                        <rect key="frame" x="283" y="129" width="16.5" height="18"/>
+                        <animations/>
+                        <state key="normal" backgroundImage="zan02-7-1-2"/>
+                        <connections>
+                            <action selector="zanBtnClick:" destination="-1" eventType="touchUpInside" id="amY-WW-NAS"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="YBh-vl-JRK">
+                        <rect key="frame" x="172" y="146" width="29" height="29"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="阡陌初心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqq-Nu-ukB">
+                        <rect key="frame" x="203" y="158" width="103" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-Bt-R8T">
+                        <rect key="frame" x="5" y="10" width="150" height="175"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="GUQ-NK-ZEP">
+                        <rect key="frame" x="5" y="10" width="150" height="150"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shade7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="hpB-ZY-DVU">
+                        <rect key="frame" x="118" y="123" width="30" height="30"/>
+                        <animations/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZu-0N-vw7">
+                        <rect key="frame" x="125" y="129" width="16.5" height="18"/>
+                        <animations/>
+                        <state key="normal" backgroundImage="zan7-1-2"/>
+                        <connections>
+                            <action selector="zanBtnClick:" destination="-1" eventType="touchUpInside" id="63f-MN-GzN"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo7-1-2" translatesAutoresizingMaskIntoConstraints="NO" id="xQD-OI-lw9">
+                        <rect key="frame" x="14" y="146" width="29" height="29"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="阡陌初心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cts-sb-sz5">
+                        <rect key="frame" x="45" y="158" width="103" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="614" y="200.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bg" width="640" height="1136"/>
+        <image name="cell7-1-2" width="150" height="175"/>
+        <image name="floor7-1-2" width="320" height="50"/>
+        <image name="photo7-1-2" width="29" height="29"/>
+        <image name="pic7-1-2" width="150" height="150"/>
+        <image name="rabel7-1-2" width="40" height="40"/>
+        <image name="shade7-1-2" width="30" height="30"/>
+        <image name="zan02-7-1-2" width="16" height="18"/>
+        <image name="zan7-1-2" width="16" height="18"/>
+    </resources>
+</document>

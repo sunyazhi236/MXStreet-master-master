@@ -1,0 +1,90 @@
+//
+//  ValidatePhoneNoViewController.m
+//  mxj
+//  P4-3验证手机号实现文件
+//  Created by 齐乐乐 on 15/11/9.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "ValidatePhoneNoViewController.h"
+#import "ForgetPasswordViewController.h"
+
+#define TIME 59 //倒计时时间
+
+@interface ValidatePhoneNoViewController ()
+{
+    NSInteger time;
+    NSTimer *timer;
+}
+
+@end
+
+@implementation ValidatePhoneNoViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    if (0 == self.intoFlag) { //注册进入
+        [self.navigationItem setTitle:@"验证手机号(3/3)"];
+    } else { //忘记密码进入
+        [self.navigationItem setTitle:@"验证手机"];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    if (timer) {
+        [timer invalidate];
+    }
+    time = TIME;
+    [self.timeLabel setText:[NSString stringWithFormat:@"(%ds)", time]];
+    [self.getValidateBtn setEnabled:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//获取验证码按钮点击事件
+- (IBAction)getValidateNoBtnClick:(id)sender {
+    NSLog(@"点击了获取验证码按钮");
+    //按钮置灰
+    UIButton *validateBtn = (UIButton *)sender;
+    [validateBtn setEnabled:NO];
+    //倒计时
+    timer =  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(changeNum) userInfo:nil repeats:YES];
+    
+    //TODO 获取验证码
+}
+
+//倒计时
+-(void)changeNum
+{
+    if (time > 1) {
+        time--;
+        [self.timeLabel setText:[NSString stringWithFormat:@"(%ds)", time]];
+    } else {
+        //关闭定时器
+        [timer invalidate];
+        time = TIME;
+        [self.timeLabel setText:[NSString stringWithFormat:@"(%ds)", time]];
+        [self.getValidateBtn setEnabled:YES];
+    }
+}
+
+//完成按钮点击事件
+- (IBAction)completeBtnClick:(id)sender {
+    NSLog(@"点击了完成按钮");
+    //TODO 跳转至首页
+    if (0 == self.intoFlag) { //注册进入
+        //TODO
+    } else {  //忘记密码进入
+        //跳转至P5_1忘记密码界面
+        ForgetPasswordViewController *forgetPaswordViewCtrl = [[ForgetPasswordViewController alloc] initWithNibName:@"ForgetPasswordViewController" bundle:nil];
+        [self.navigationController pushViewController:forgetPaswordViewCtrl animated:YES];
+    }
+}
+
+@end

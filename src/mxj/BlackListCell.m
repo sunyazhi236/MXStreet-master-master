@@ -1,0 +1,24 @@
+//
+//  BlackListCell.m
+//  mxj
+//  P12-7黑名单
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BlackListCell.h"
+
+@implementation BlackListCell
+
+- (void)awakeFromNib {
+    // Initialization code
+    [CustomUtil setImageViewCorner:_personImageView];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

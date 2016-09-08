@@ -1,0 +1,94 @@
+//
+//  StreetPhotoViewController.m
+//  mxj
+//  P7-5街拍
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "StreetPhotoViewController.h"
+#import "SearchViewController.h"
+#import "SearchFriendViewController.h"
+
+@interface StreetPhotoViewController ()
+
+@end
+
+@implementation StreetPhotoViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setSelfWaterView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//搜索好友按钮点击事件
+- (IBAction)searchFriendBtn:(id)sender {
+    SearchFriendViewController *searchFriendViewCtrl = [[SearchFriendViewController alloc] initWithNibName:@"SearchFriendViewController" bundle:nil];
+    [self.navigationController pushViewController:searchFriendViewCtrl animated:YES];
+}
+
+//搜索标签或用户按钮点击事件
+- (IBAction)searchBtnClick:(id)sender {
+    SearchViewController *searchViewCtrl = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
+    [self.navigationController pushViewController:searchViewCtrl animated:YES];
+}
+
+//设置瀑布流
+-(void)setSelfWaterView
+{
+    //解析数据
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"Data" ofType:@"json"];
+    NSString *string = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSArray *array = [string objectFromJSONString];
+    NSMutableArray *arrayImage = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i<[array count]; i++) {
+        NSDictionary *dataD = [array objectAtIndex:i];
+        if (dataD) {
+            ImageInfo *imageInfo = [[ImageInfo alloc] initWithDictionary:dataD];
+            [arrayImage addObject:imageInfo];
+        }
+    }
+    NSLog(@"%@", arrayImage);
+    
+    self.waterView = [[ImageWaterView alloc] initWithDataArray:arrayImage withFrame:CGRectMake(0, 64, 320, 460) intoFlag:0];
+    
+    //添加上拉加载更多
+    __weak StreetPhotoViewController *blockSelf = self;
+    [self.waterView addInfiniteScrollingWithActionHandler:^{
+        NSLog(@"上拉刷新");
+        //使用GCD开启一个线程，使圈圈转2秒
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [blockSelf.waterView loadNextPage:arrayImage intoFlag:0];
+            [blockSelf.waterView.infiniteScrollingView stopAnimating];
+        });
+    }];
+    //添加下拉刷新
+    [self.waterView addPullToRefreshWithActionHandler:^{
+        NSLog(@"下拉更新");
+        //使用GCD开启一个线程，使圈圈转2秒
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [blockSelf.waterView refreshView:arrayImage intoFlag:0];
+            [blockSelf.waterView.pullToRefreshView stopAnimating];
+        });
+    }];
+    [self.view addSubview:self.waterView];
+}
+
+@end

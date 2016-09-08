@@ -1,0 +1,14 @@
+//
+//  ConcernManTableViewCell.h
+//  mxj
+//
+//  Created by 齐乐乐 on 15/11/15.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ConcernManTableViewCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIButton *alreadyConcernBtn;
+
+@end

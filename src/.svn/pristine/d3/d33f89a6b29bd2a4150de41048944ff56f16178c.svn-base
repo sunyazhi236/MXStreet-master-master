@@ -1,0 +1,112 @@
+//
+//  MeFansViewController.m
+//  mxj
+//  P11我的粉丝视图控制器实现文件
+//  Created by 齐乐乐 on 15/11/16.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "MeFansViewController.h"
+#import "MeFansTableViewOneCell.h"
+#import "MeFansTableViewTwoCell.h"
+#import "PersonMainPageViewController.h"
+
+@interface MeFansViewController ()
+
+@end
+
+@implementation MeFansViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"我的粉丝"];
+    self.meFansTableView.delegate = self;
+    self.meFansTableView.dataSource = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0: //首行
+            return 54;
+        default:
+            break;
+    }
+    return 44;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+        {
+            MeFansTableViewOneCell *meFansTableViewOneCell = [tableView dequeueReusableCellWithIdentifier:@"MeFansTableViewOneCell"];
+            if (!meFansTableViewOneCell) {
+                meFansTableViewOneCell = [[[NSBundle mainBundle] loadNibNamed:@"MeFansTableViewOneCell" owner:self options:nil] lastObject];
+            }
+            meFansTableViewOneCell.delegate = self;
+            return meFansTableViewOneCell;
+        }
+            break;
+        case 1:
+        {
+            MeFansTableViewTwoCell *meFansTableViewTwoCell = [tableView dequeueReusableCellWithIdentifier:@"MeFansTableViewTwoCell"];
+            if (!meFansTableViewTwoCell) {
+                meFansTableViewTwoCell = [[[NSBundle mainBundle] loadNibNamed:@"MeFansTableViewTwoCell" owner:self options:nil] lastObject];
+            }
+            meFansTableViewTwoCell.delegate = self;
+            return meFansTableViewTwoCell;
+        }
+        case 2:
+        {
+            MeFansTableViewTwoCell *meFansTableViewTwoCell1 = [tableView dequeueReusableCellWithIdentifier:@"MeFansTableViewTwoCell"];
+            if (!meFansTableViewTwoCell1) {
+                meFansTableViewTwoCell1 = [[[NSBundle mainBundle] loadNibNamed:@"MeFansTableViewTwoCell" owner:self options:nil] lastObject];
+            }
+            [meFansTableViewTwoCell1.fansBtn setBackgroundImage:[UIImage imageNamed:@"btn02_11"] forState:UIControlStateNormal];
+            [meFansTableViewTwoCell1.fansBtn setTitle:@"互为关注" forState:UIControlStateNormal];
+            [meFansTableViewTwoCell1.fansBtn setTitleColor:[UIColor colorWithRed:198/255.0 green:0 blue:0 alpha:1.0] forState:UIControlStateNormal];
+            meFansTableViewTwoCell1.delegate = self;
+            return meFansTableViewTwoCell1;
+        }
+        case 3:
+        {
+            MeFansTableViewTwoCell *meFansTableViewTwoCell = [tableView dequeueReusableCellWithIdentifier:@"MeFansTableViewTwoCell"];
+            if (!meFansTableViewTwoCell) {
+                meFansTableViewTwoCell = [[[NSBundle mainBundle] loadNibNamed:@"MeFansTableViewTwoCell" owner:self options:nil] lastObject];
+            }
+            meFansTableViewTwoCell.delegate = self;
+            return meFansTableViewTwoCell;
+        }
+        default:
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+//点击cell上用户头像时的处理
+-(void)imageViewClick:(int)indexPath
+{
+    PersonMainPageViewController *personMainPageViewCtrl = [[PersonMainPageViewController alloc] initWithNibName:@"PersonMainPageViewController" bundle:nil];
+    [self.navigationController pushViewController:personMainPageViewCtrl animated:YES];
+}
+
+@end

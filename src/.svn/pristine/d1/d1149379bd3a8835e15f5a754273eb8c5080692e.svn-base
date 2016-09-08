@@ -1,0 +1,18 @@
+//
+//  StreetPhotoViewController.h
+//  mxj
+//  P7-5街拍
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+#import "ImageWaterView.h"
+#import "SVPullToRefresh.h"
+#import "JSONKit.h"
+
+@interface StreetPhotoViewController : BaseViewController
+
+@property (nonatomic, strong) ImageWaterView *waterView;
+
+@end

@@ -1,0 +1,15 @@
+//
+//  MyStreetPhotoViewController.h
+//  mxj
+//  P9-1我的街拍
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface MyStreetPhotoViewController : BaseViewController
+
+
+
+@end

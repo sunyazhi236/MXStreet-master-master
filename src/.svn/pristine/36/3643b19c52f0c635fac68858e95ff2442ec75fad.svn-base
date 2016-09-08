@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainPageTabBarController">
+            <connections>
+                <outlet property="bannerImageView" destination="rRU-oo-9W5" id="aIn-GL-n3S"/>
+                <outlet property="bannerPageCtrl" destination="ALF-UU-UhE" id="sWg-hJ-mun"/>
+                <outlet property="bannerScrollView" destination="hBG-hp-PyF" id="vIz-pD-8qb"/>
+                <outlet property="btnTableCell" destination="gM2-vE-B16" id="jhb-BN-W1Y"/>
+                <outlet property="cellBackImageView" destination="WZz-br-uHC" id="qcs-WP-csr"/>
+                <outlet property="guanzhuBtn" destination="zmD-xi-KfF" id="9uT-ut-7W3"/>
+                <outlet property="imageTableCell" destination="bPh-MH-DsV" id="eep-jA-TgZ"/>
+                <outlet property="mainPageTableView" destination="JXT-cP-aLZ" id="De6-yR-0Gx"/>
+                <outlet property="renqiBtn" destination="fe6-lr-qP4" id="Z1X-8w-yyg"/>
+                <outlet property="tongcBtn" destination="akL-wk-i8F" id="j2B-cy-SMm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" id="vD9-Mq-rcg">
+                    <rect key="frame" x="0.0" y="-568" width="320" height="1136"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top" id="CoL-gb-Es9">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="毛线街" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AyK-Ig-col">
+                    <rect key="frame" x="134" y="30" width="51" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bDV-E6-yAU">
+                    <rect key="frame" x="10" y="35" width="30" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="上海">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="areaBtnClick:" destination="-1" eventType="touchUpInside" id="6bR-Qg-kXB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kyL-Vc-S0K">
+                    <rect key="frame" x="44" y="41" width="12" height="6.5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="down_7"/>
+                    <connections>
+                        <action selector="areaBtnClick:" destination="-1" eventType="touchUpInside" id="tZk-rM-9LY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vYw-AC-JbN">
+                    <rect key="frame" x="294" y="32" width="18" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="search_7"/>
+                    <connections>
+                        <action selector="searchBtnClick:" destination="-1" eventType="touchUpInside" id="zdq-Xp-6av"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="JXT-cP-aLZ">
+                    <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="274" y="321"/>
+        </view>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="170" id="bPh-MH-DsV">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bPh-MH-DsV" id="5k4-Oi-xau">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hBG-hp-PyF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_7" id="rRU-oo-9W5">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                    </scrollView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="ALF-UU-UhE">
+                        <rect key="frame" x="140" y="141" width="39" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                    </pageControl>
+                </subviews>
+                <animations/>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="637" y="122"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="gM2-vE-B16">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gM2-vE-B16" id="5Oe-kZ-Jee">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="46.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" id="09o-KM-0iT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_7" id="WZz-br-uHC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zmD-xi-KfF">
+                        <rect key="frame" x="22" y="8" width="60" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="关注" image="gaunzhu_7">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" title="关注" image="gaunzhu02_7">
+                            <color key="titleColor" red="0.71764705880000002" green="0.023529411760000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="highlighted" image="gaunzhu02_7">
+                            <color key="titleColor" red="0.71764705882352942" green="0.023529411764705882" blue="0.027450980392156862" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="guanzhuBtnClick:" destination="-1" eventType="touchUpInside" id="CMr-zN-dSo"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fe6-lr-qP4">
+                        <rect key="frame" x="130" y="8" width="60" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="人气" image="renqi_7">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" title="人气" image="renqi02_7">
+                            <color key="titleColor" red="0.71764705880000002" green="0.023529411760000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="highlighted" image="renqi02_7">
+                            <color key="titleColor" red="0.71764705880000002" green="0.023529411760000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="renqiBtnClick:" destination="-1" eventType="touchUpInside" id="XWS-ed-uQi"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="akL-wk-i8F">
+                        <rect key="frame" x="239" y="9" width="60" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="同城" image="tongc_7">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" title="同城" image="tongc02_7">
+                            <color key="titleColor" red="0.71764705880000002" green="0.023529411760000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="highlighted" image="tongc02_7">
+                            <color key="titleColor" red="0.71764705880000002" green="0.023529411760000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="tongchengBtnClick:" destination="-1" eventType="touchUpInside" id="HEV-Cw-eDJ"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="B1K-e1-LnB">
+                        <rect key="frame" x="107" y="0.0" width="1" height="39.5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WBA-1Y-wmC">
+                        <rect key="frame" x="214" y="0.0" width="1" height="39.5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line7-1-1" id="CFT-9V-mBq">
+                        <rect key="frame" x="10" y="47" width="300" height="1"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
+                    </imageView>
+                </subviews>
+                <animations/>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="637" y="287.5"/>
+        </tableViewCell>
+        <tabBar contentMode="scaleToFill" backgroundImage="menu" id="cDb-ix-B0C">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <animations/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <items>
+                <tabBarItem tag="1" title="首页" image="home" selectedImage="home02" id="P7W-s4-5Q8" userLabel="首页"/>
+                <tabBarItem tag="2" title="街拍" image="eye" selectedImage="eye02" id="rKA-Ab-Rw0" userLabel="街拍"/>
+                <tabBarItem tag="3" title="" image="camera" id="iYi-Ed-Ml1" userLabel="发布街拍"/>
+                <tabBarItem tag="4" title="消息" image="mail" selectedImage="mail02" id="5I4-RB-fMA" userLabel="消息"/>
+                <tabBarItem tag="5" title="我的" image="user" selectedImage="user02" id="YeQ-98-06c" userLabel="我的"/>
+            </items>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="selectedImageTintColor">
+                    <color key="value" red="0.72549019607843135" green="0.058823529411764705" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="637" y="385.5"/>
+        </tabBar>
+    </objects>
+    <resources>
+        <image name="banner_7" width="320" height="170"/>
+        <image name="bg" width="640" height="1136"/>
+        <image name="camera" width="37" height="37"/>
+        <image name="down_7" width="12" height="6"/>
+        <image name="eye" width="28" height="18"/>
+        <image name="eye02" width="28" height="18"/>
+        <image name="gaunzhu02_7" width="17" height="18"/>
+        <image name="gaunzhu_7" width="17" height="18"/>
+        <image name="home" width="20" height="22"/>
+        <image name="home02" width="20" height="22"/>
+        <image name="left_7" width="320" height="47"/>
+        <image name="line7-1-1" width="1" height="1"/>
+        <image name="mail" width="20" height="18"/>
+        <image name="mail02" width="20" height="18"/>
+        <image name="menu" width="319" height="49"/>
+        <image name="renqi02_7" width="16" height="15"/>
+        <image name="renqi_7" width="16" height="15"/>
+        <image name="search_7" width="18" height="18"/>
+        <image name="tongc02_7" width="16" height="16"/>
+        <image name="tongc_7" width="16" height="16"/>
+        <image name="top" width="320" height="64"/>
+        <image name="user" width="17" height="21"/>
+        <image name="user02" width="17" height="21"/>
+    </resources>
+</document>

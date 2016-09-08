@@ -1,0 +1,142 @@
+//
+//  SearchViewController.m
+//  mxj
+//  P7-1搜索页面
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "SearchViewController.h"
+#import "SearchResultOneCell.h"
+#import "SearchResultTwoCell.h"
+#import "LabelListViewController.h"
+
+@interface SearchViewController ()
+{
+    BOOL searchFlag; //搜索切换flag YES：标签 NO：用户
+}
+
+@end
+
+@implementation SearchViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    //默认选中标签按钮
+    searchFlag = YES;
+    self.searchResultTableView.delegate = self;
+    self.searchResultTableView.dataSource = self;
+    self.searchTextField.delegate = self;
+    [self.searchResultTableView setHidden:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件
+//取消按钮点击事件处理
+- (IBAction)cancelBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//标签按钮点击事件处理
+- (IBAction)labelBtnClick:(id)sender {
+    [self.labelBtn setBackgroundImage:[UIImage imageNamed:@"tab-left7_1"] forState:UIControlStateNormal];
+    [self.labelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self.userBtn setBackgroundImage:[UIImage imageNamed:@"tab-right7_1"] forState:UIControlStateNormal];
+    [self.userBtn setTitleColor:[UIColor colorWithRed:183/255.0 green:20/255.0 blue:26/255.0 alpha:1.0f] forState:UIControlStateNormal];
+    if (NO == searchFlag) {
+        [self.searchResultTableView setHidden:YES];
+    }
+    
+    searchFlag = YES;
+}
+
+//用户按钮点击事件处理
+- (IBAction)userBtnClick:(id)sender {
+
+    [self.labelBtn setBackgroundImage:[UIImage imageNamed:@"tab-left7-1-1_2"] forState:UIControlStateNormal];
+    [self.labelBtn setTitleColor:[UIColor colorWithRed:183/255.0 green:20/255.0 blue:26/255.0 alpha:1.0f] forState:UIControlStateNormal];
+    
+    [self.userBtn setBackgroundImage:[UIImage imageNamed:@"tab-right7-1-1_2"] forState:UIControlStateNormal];
+    [self.userBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    if (YES == searchFlag) {
+        [self.searchResultTableView setHidden:YES];
+    }
+    searchFlag = NO;
+    
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (YES == searchFlag) {
+        SearchResultOneCell *resultOneCell = [tableView dequeueReusableCellWithIdentifier:@"SearchResultOneCell"];
+        if (!resultOneCell) {
+            resultOneCell = [[[NSBundle mainBundle] loadNibNamed:@"SearchResultOneCell" owner:self options:nil] lastObject];
+        }
+        if (3 == indexPath.row) {
+            //隐藏下方的下划线
+            [resultOneCell.lineImageView setHidden:YES];
+        } else {
+            [resultOneCell.lineImageView setHidden:NO];
+        }
+        return resultOneCell;
+    } else {
+        SearchResultTwoCell *resultTwoCell = [tableView dequeueReusableCellWithIdentifier:@"SearchResultTwoCell"];
+        if (!resultTwoCell) {
+            resultTwoCell = [[[NSBundle mainBundle] loadNibNamed:@"SearchResultTwoCell" owner:self options:nil] lastObject];
+        }
+        if (3 == indexPath.row) {
+            //隐藏下方的下划线
+            [resultTwoCell.searchResultLineImageView setHidden:YES];
+        } else {
+            [resultTwoCell.searchResultLineImageView setHidden:NO];
+        }
+        return resultTwoCell;
+    }
+    
+    return [[UITableViewCell alloc] init];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (YES == searchFlag) {
+        //跳转至标签列表界面
+        LabelListViewController *labelListViewCtrl = [[LabelListViewController alloc] initWithNibName:@"LabelListViewController" bundle:nil];
+        [self.navigationController pushViewController:labelListViewCtrl animated:YES];
+    } else {
+        //TODO
+    }
+}
+
+#pragma mark -TextField代理方法
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.searchResultTableView setHidden:NO];
+    [self.searchResultTableView reloadData];
+    
+    return YES;
+}
+
+@end

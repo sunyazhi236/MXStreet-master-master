@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendPrivateMessageViewController">
+            <connections>
+                <outlet property="sendPrivateMessageTableView" destination="fAG-3t-Ex5" id="NKc-5z-9pO"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="1eH-Ly-0u1">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fAG-3t-Ex5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="foot_8_3_1" translatesAutoresizingMaskIntoConstraints="NO" id="UkO-56-2HF">
+                    <rect key="frame" x="0.0" y="520" width="320" height="49"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="input_8_3_1" translatesAutoresizingMaskIntoConstraints="NO" id="AJc-Bo-rMm">
+                    <rect key="frame" x="8" y="530" width="236" height="28.5"/>
+                    <animations/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入文字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJD-C5-0PX">
+                    <rect key="frame" x="24" y="530" width="212" height="30"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGe-Zy-0zD">
+                    <rect key="frame" x="263" y="530" width="49" height="28.5"/>
+                    <animations/>
+                    <state key="normal" title="发送" backgroundImage="btn_8_3_1">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="UkO-56-2HF" secondAttribute="bottom" constant="-1" id="2SA-tl-Smx"/>
+                <constraint firstItem="fAG-3t-Ex5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="64d-22-w1H"/>
+                <constraint firstItem="gJD-C5-0PX" firstAttribute="top" secondItem="AJc-Bo-rMm" secondAttribute="top" id="9mc-bf-HP7"/>
+                <constraint firstItem="gJD-C5-0PX" firstAttribute="bottom" secondItem="AJc-Bo-rMm" secondAttribute="bottom" id="Pzh-0W-W17"/>
+                <constraint firstAttribute="bottom" secondItem="gJD-C5-0PX" secondAttribute="bottom" constant="8" id="TuE-jE-nl9"/>
+                <constraint firstAttribute="bottom" secondItem="fAG-3t-Ex5" secondAttribute="bottom" constant="50" id="Twb-xB-0kS"/>
+                <constraint firstAttribute="bottom" secondItem="CGe-Zy-0zD" secondAttribute="bottom" constant="9.5" id="Z3O-1X-yao"/>
+                <constraint firstAttribute="bottom" secondItem="AJc-Bo-rMm" secondAttribute="bottom" constant="9.5" id="bOM-Y0-vkz"/>
+            </constraints>
+            <point key="canvasLocation" x="258" y="270"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg" width="640" height="1136"/>
+        <image name="btn_8_3_1" width="49" height="28"/>
+        <image name="foot_8_3_1" width="320" height="49"/>
+        <image name="input_8_3_1" width="236" height="28"/>
+    </resources>
+</document>

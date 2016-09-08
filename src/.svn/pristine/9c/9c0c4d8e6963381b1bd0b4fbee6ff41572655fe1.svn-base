@@ -1,0 +1,60 @@
+//
+//  PrivateMessageViewController.m
+//  mxj
+//  P8-3私信实现文件
+//  Created by 齐乐乐 on 15/11/13.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "PrivateMessageViewController.h"
+#import "PrivateMessageTableCell.h"
+#import "SendPrivateMessageViewController.h"
+
+@interface PrivateMessageViewController ()
+
+@end
+
+@implementation PrivateMessageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"私信"];
+    self.privateMessageTableView.delegate = self;
+    self.privateMessageTableView.dataSource = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //TODO 根据实际数据设置
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PrivateMessageTableCell *privateMessageTableCell = [tableView dequeueReusableCellWithIdentifier:@"PrivateMessageTableCell"];
+    if (!privateMessageTableCell) {
+        privateMessageTableCell = [[[NSBundle mainBundle] loadNibNamed:@"PrivateMessageTableCell" owner:self options:nil] lastObject];
+    }
+    return privateMessageTableCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SendPrivateMessageViewController *sendPrivateMessageViewCtrl = [[SendPrivateMessageViewController alloc] initWithNibName:@"SendPrivateMessageViewController" bundle:nil];
+    [self.navigationController pushViewController:sendPrivateMessageViewCtrl animated:YES];
+}
+
+@end

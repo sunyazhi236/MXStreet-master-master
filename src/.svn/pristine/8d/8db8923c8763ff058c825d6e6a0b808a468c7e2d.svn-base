@@ -1,0 +1,50 @@
+//
+//  WelcomePageViewController.m
+//  mxj
+//  P3欢迎页ViewController实现文件
+//  Created by 齐乐乐 on 15/11/9.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "WelcomePageViewController.h"
+#import "RegisterViewController.h"
+
+@interface WelcomePageViewController ()
+
+@end
+
+@implementation WelcomePageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    //隐藏状态栏 TODO
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//注册或登录毛线街按钮点击事件处理
+- (IBAction)registerOrLoginBtnClick:(id)sender {
+    NSLog(@"点击了注册或登录毛线街按钮。");
+    //跳转到P4注册界面
+    RegisterViewController *registerViewCtrl = [[RegisterViewController alloc] initWithNibName:@"RegisterViewController" bundle:nil];
+    [self.navigationController pushViewController:registerViewCtrl animated:YES];
+}
+
+//随便看看按钮点击事件处理
+- (IBAction)seeAnyWayBtnClick:(id)sender {
+    NSLog(@"点击了随便看看按钮。");
+    //TODO
+}
+
+
+@end

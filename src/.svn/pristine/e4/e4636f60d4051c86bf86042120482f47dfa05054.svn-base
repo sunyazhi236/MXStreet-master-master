@@ -1,0 +1,16 @@
+//
+//  MeFansViewController.h
+//  mxj
+//  P11我的粉丝视图控制器头文件
+//  Created by 齐乐乐 on 15/11/16.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface MeFansViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *meFansTableView; //我的粉丝TableView
+
+
+@end

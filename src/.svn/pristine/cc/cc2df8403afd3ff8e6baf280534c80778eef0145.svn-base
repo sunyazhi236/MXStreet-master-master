@@ -1,0 +1,59 @@
+//
+//  PublishViewController.m
+//  mxj
+//  P7-3发布街拍
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "PublishViewController.h"
+#import "PublishStreetPhotoViewController.h"
+#import "PositionSetViewController.h"
+#import "StreetPhotoDetailViewController.h"
+
+@interface PublishViewController ()
+
+@end
+
+@implementation PublishViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(positionClick:)];
+    [self.positionSetImagView addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//返回按钮点击事件
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//发布按钮点击事件
+- (IBAction)publishBtnClick:(id)sender {
+    //进入详情页面
+    StreetPhotoDetailViewController *detailViewCtrl = [[StreetPhotoDetailViewController alloc] initWithNibName:@"StreetPhotoDetailViewController" bundle:nil];
+    [self.navigationController pushViewController:detailViewCtrl animated:YES];
+}
+
+//添加照片按钮点击事件
+- (IBAction)plusBtnClick:(id)sender {
+    //进入手机相册页面
+    PublishStreetPhotoViewController *publishStreetPhotoViewCtrl  = [[PublishStreetPhotoViewController alloc] initWithNibName:@"PublishStreetPhotoViewController" bundle:nil];
+    publishStreetPhotoViewCtrl.intoFlag = NO;
+    [self.navigationController pushViewController:publishStreetPhotoViewCtrl animated:YES];
+}
+
+//位置设置Cell点击事件
+-(void)positionClick:(id)sender
+{
+    PositionSetViewController *positionSetViewCtrl = [[PositionSetViewController alloc] initWithNibName:@"PositionSetViewController" bundle:nil];
+    [self.navigationController pushViewController:positionSetViewCtrl animated:YES];
+}
+
+@end

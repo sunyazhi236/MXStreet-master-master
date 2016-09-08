@@ -1,0 +1,94 @@
+//
+//  CustomLabelViewController.m
+//  mxj
+//  P7-2-3自定义标签
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "CustomLabelViewController.h"
+#import "CustomLabelCell.h"
+
+@interface CustomLabelViewController ()
+{
+    NSArray *labelNameArray; //标签名称数组
+}
+
+@end
+
+@implementation CustomLabelViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.customLabelTableView.delegate = self;
+    self.customLabelTableView.dataSource = self;
+    self.customLabelTextFiled.delegate = self;
+    
+    labelNameArray = [[NSArray alloc] initWithObjects:
+                      @"标签1",
+                      @"标签2",
+                      @"标签3",
+                      @"标签4",
+                      @"标签5",
+                      @"标签6",
+                      @"标签7",
+                      @"标签8",
+                      @"标签9",
+                      @"标签10",
+                      nil];
+    [self.customLabelTableView setHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//返回按钮点击事件
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//添加按钮点击事件
+- (IBAction)addBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomLabelCell *customLabelCell = [tableView dequeueReusableCellWithIdentifier:@"CustomLabelCell"];
+    if (!customLabelCell) {
+        customLabelCell = [[[NSBundle mainBundle] loadNibNamed:@"CustomLabelCell" owner:self options:nil] lastObject];
+    }
+    [customLabelCell.labelName setText:[labelNameArray objectAtIndex:indexPath.row]];
+    
+    return customLabelCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark -TextField代理方法
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.customLabelTableView setHidden:NO];
+    [self.customLabelTableView reloadData];
+    
+    return YES;
+}
+
+@end

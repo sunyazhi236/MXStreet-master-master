@@ -1,0 +1,16 @@
+//
+//  PublishViewController.h
+//  mxj
+//  P7-3发布街拍
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface PublishViewController : BaseViewController
+
+@property (strong, nonatomic) IBOutlet UIImageView *positionSetImagView;  //位置设置ImageView
+
+
+@end

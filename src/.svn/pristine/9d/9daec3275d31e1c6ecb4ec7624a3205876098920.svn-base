@@ -1,0 +1,186 @@
+//
+//  SetViewController.m
+//  mxj
+//  P12设置
+//  Created by 齐乐乐 on 15/11/16.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "SetViewController.h"
+#import "guanYuWoMenViewController.h"
+#import "HelpViewController.h"
+#import "FeedBackViewController.h"
+#import "ChangePasswordViewController.h"
+#import "MyLevelViewController.h"
+#import "PersonDocViewController.h"
+#import "BlackListViewController.h"
+
+@interface SetViewController ()
+{
+    BOOL messagePushFlag;
+}
+
+@end
+
+@implementation SetViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"设置"];
+    self.setTableView.delegate = self;
+    self.setTableView.dataSource = self;
+    
+    [self.messagePushBtn addTarget:self action:@selector(messagePushBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    messagePushFlag = YES;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 11;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+        case 4:
+        case 6:
+        case 10:
+            return 54;
+            break;
+        default:
+            return 44;
+            break;
+    }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return self.geRenZiliaoCell;
+            break;
+        case 1:
+            return self.woDeDengJiCell;
+            break;
+        case 2:
+            return self.xiuGaiMiMaCell;
+            break;
+        case 3:
+            return self.heiMingDanCell;
+            break;
+        case 4:
+            return self.xiaoXiTuiSongCell;
+            break;
+        case 5:
+            return self.qingChuHuanCunCell;
+            break;
+        case 6:
+            return self.yiJianFanKuiCell;
+            break;
+        case 7:
+            return self.guanYuWoMenCell;
+            break;
+        case 8:
+            return self.bangZhuZhongXinCell;
+            break;
+        case 9:
+            return self.keFuReXianCell;
+            break;
+        case 10:
+            return self.banBenGengXinCell;
+            break;
+        default:
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0: //个人资料
+        {
+            PersonDocViewController *personDocViewCtrl = [[PersonDocViewController alloc] initWithNibName:@"PersonDocViewController" bundle:nil];
+            [self.navigationController pushViewController:personDocViewCtrl animated:YES];
+        }
+            break;
+        case 1: //我的等级
+        {
+            MyLevelViewController *myLevelViewCtrl = [[MyLevelViewController alloc] initWithNibName:@"MyLevelViewController" bundle:nil];
+            [self.navigationController pushViewController:myLevelViewCtrl animated:YES];
+        }
+            break;
+        case 2: //修改密码
+        {
+            ChangePasswordViewController *changePasswordViewCtrl = [[ChangePasswordViewController alloc] initWithNibName:@"ChangePasswordViewController" bundle:nil];
+            [self.navigationController pushViewController:changePasswordViewCtrl animated:YES];
+        }
+            break;
+        case 3: //黑名单
+        {
+            BlackListViewController *blackListViewCtrl = [[BlackListViewController alloc] initWithNibName:@"BlackListViewController" bundle:nil];
+            [self.navigationController pushViewController:blackListViewCtrl animated:YES];
+        }
+            break;
+        case 6:  //意见反馈
+        {
+            FeedBackViewController *feedBackViewCtrl = [[FeedBackViewController alloc] initWithNibName:@"FeedBackViewController" bundle:nil];
+            [self.navigationController pushViewController:feedBackViewCtrl animated:YES];
+        }
+            break;
+        case 7:   //关于我们
+        {
+            guanYuWoMenViewController *guanYuWoMenViewCtrl = [[guanYuWoMenViewController alloc] initWithNibName:@"guanYuWoMenViewController" bundle:nil];
+            [self.navigationController pushViewController:guanYuWoMenViewCtrl animated:YES];
+        }
+            break;
+        case 8: //帮助中心
+        {
+            HelpViewController *helpViewCtrl = [[HelpViewController alloc] initWithNibName:@"HelpViewController" bundle:nil];
+            [self.navigationController pushViewController:helpViewCtrl animated:YES];
+        }
+            break;
+        case 9: //客服热线
+        {
+            //TODO
+        }
+            break;
+        case 10: //版本更新
+        {
+            //TODO
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark -按钮点击事件处理
+//消息推送按钮点击事件
+-(void)messagePushBtnClick
+{
+    if (YES == messagePushFlag) {
+        messagePushFlag = NO;
+        [self.messagePushBtn setBackgroundImage:[UIImage imageNamed:@"off_12"] forState:UIControlStateNormal];
+    } else {
+        messagePushFlag = YES;
+        [self.messagePushBtn setBackgroundImage:[UIImage imageNamed:@"on_12"] forState:UIControlStateNormal];
+    }
+}
+
+@end

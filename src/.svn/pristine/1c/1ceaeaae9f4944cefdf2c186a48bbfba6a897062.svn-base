@@ -1,0 +1,13 @@
+//
+//  LabelListTableCell.h
+//  mxj
+//  P7-1-2标签列表Cell
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface LabelListTableCell : UITableViewCell
+
+@end

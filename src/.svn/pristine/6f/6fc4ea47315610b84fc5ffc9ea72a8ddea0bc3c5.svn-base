@@ -1,0 +1,96 @@
+//
+//  StreetPhotoDetailViewController.m
+//  mxj
+//  P7-4街拍详情
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "StreetPhotoDetailViewController.h"
+#import "StreetPhotoDetailCell.h"
+#import "PhotoDetailViewController.h"
+
+@interface StreetPhotoDetailViewController ()
+
+@end
+
+@implementation StreetPhotoDetailViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"街拍详情"];
+    self.detailTableView.delegate = self;
+    self.detailTableView.dataSource = self;
+    self.inputTextField.delegate = self;
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImageView)];
+    [self.picImageView addGestureRecognizer:tapGestureRecognizer];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 8;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return 60;
+        case 1:
+            return 447;
+        default:
+            return 40;
+    }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return self.firstCell;
+        case 1:
+            return self.secondCell;
+        default:
+        {
+            StreetPhotoDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StreetPhotoDetailCell"];
+            if (!cell) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"StreetPhotoDetailCell" owner:self options:nil] lastObject];
+            }
+            return cell;
+        }
+    }
+}
+
+#pragma mark -TextField代理方法
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.inputTextField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark -按钮点击事件
+-(void)touchImageView
+{
+    PhotoDetailViewController *photoDetailViewCtrl = [[PhotoDetailViewController alloc] initWithNibName:@"PhotoDetailViewController" bundle:nil];
+    [self.navigationController pushViewController:photoDetailViewCtrl animated:YES];
+}
+
+@end

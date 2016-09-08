@@ -1,0 +1,23 @@
+//
+//  PositionSetCell.m
+//  mxj
+//  P7-3-1设置位置信息用Cell
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "PositionSetCell.h"
+
+@implementation PositionSetCell
+
+- (void)awakeFromNib {
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

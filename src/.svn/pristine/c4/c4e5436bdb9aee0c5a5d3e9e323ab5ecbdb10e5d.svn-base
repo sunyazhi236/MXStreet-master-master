@@ -1,0 +1,50 @@
+//
+//  TakePhotosViewController.m
+//  mxj
+//  P7-2拍照
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "TakePhotosViewController.h"
+#import "EditPhotoViewController.h"
+
+@interface TakePhotosViewController ()
+
+@end
+
+@implementation TakePhotosViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//返回按钮点击事件
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//重拍按钮点击事件处理
+- (IBAction)reTakePhotoBtnClick:(id)sender {
+    //TODO
+}
+
+//使用照片按钮点击事件处理
+- (IBAction)userPhotoBtnClick:(id)sender {
+    EditPhotoViewController *editPhotoViewCtrl = [[EditPhotoViewController alloc] initWithNibName:@"EditPhotoViewController" bundle:nil];
+    [self.navigationController pushViewController:editPhotoViewCtrl animated:YES];
+}
+
+//拍照按钮点击事件
+- (IBAction)takePhotoBtnClick:(id)sender {
+    //TODO
+}
+
+@end

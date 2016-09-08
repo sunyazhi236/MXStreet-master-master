@@ -1,0 +1,13 @@
+//
+//  MeFansTableViewOneCell.h
+//  mxj
+//  P11我的粉丝首行TableCell
+//  Created by 齐乐乐 on 15/11/16.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MeFansTableViewOneCell : UITableViewCell
+
+@end

@@ -1,0 +1,78 @@
+//
+//  SearchFriendViewController.m
+//  mxj
+//  P7-5-1搜索好友
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "SearchFriendViewController.h"
+#import "PhoneBookViewController.h"
+
+@interface SearchFriendViewController ()
+
+@end
+
+@implementation SearchFriendViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:NO];
+    self.searchFriendTableView.delegate = self;
+    self.searchFriendTableView.dataSource = self;
+    [self.navigationItem setTitle:@"搜索好友"];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (0 == indexPath.row) {
+        return 54;
+    }
+    
+    return 44;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return self.weiboCell;
+            break;
+        case 1:
+            return self.weixinCell;
+        case 2:
+            return self.qqCell;
+        case 3:
+            return self.tongxunluCell;
+        default:
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (3 == indexPath.row) {
+        //跳转至通讯录好友页面
+        PhoneBookViewController *phoneBookViewCtrl = [[PhoneBookViewController alloc] initWithNibName:@"PhoneBookViewController" bundle:nil];
+        [self.navigationController pushViewController:phoneBookViewCtrl animated:YES];
+    }
+}
+
+@end

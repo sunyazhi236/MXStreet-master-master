@@ -1,0 +1,17 @@
+//
+//  MeFansTableViewOneCell.h
+//  mxj
+//  P11我的粉丝首行TableCell
+//  Created by 齐乐乐 on 15/11/16.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "UserImageViewClickProtocol.h"
+
+@interface MeFansTableViewOneCell : UITableViewCell
+
+@property (nonatomic, strong) id<UserImageViewClickProtocol> delegate;
+@property (nonatomic, assign) int index; //cell的编号
+
+@end

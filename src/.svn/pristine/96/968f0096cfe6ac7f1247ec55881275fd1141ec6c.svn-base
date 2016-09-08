@@ -1,0 +1,112 @@
+//
+//  MessageViewController.m
+//  mxj
+//  P8消息实现文件
+//  Created by 齐乐乐 on 15/11/12.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "MessageViewController.h"
+#import "MessageTableCell.h"
+#import "CommentViewController.h"
+#import "NoticeViewController.h"
+#import "PrivateMessageViewController.h"
+#import "EncourageMeViewController.h"
+
+#define ROW_COUNT 4
+
+@interface MessageViewController ()
+
+@end
+
+@implementation MessageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    self.messageTableView.delegate = self;
+    self.messageTableView.dataSource = self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -tableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return ROW_COUNT;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MessageTableCell *tableCell = [tableView dequeueReusableCellWithIdentifier:@"messageTableCell"];
+    if (!tableCell) {
+        tableCell = [[[NSBundle mainBundle] loadNibNamed:@"MessageTableCell" owner:self options:nil] lastObject];
+    }
+    switch (indexPath.row) {
+        case 0:
+        {
+            [tableCell setCellValue:@"评论" messageCount:@"0"];
+        }
+            break;
+        case 1:
+            [tableCell setCellValue:@"通知" messageCount:@"2"];
+            break;
+        case 2:
+            [tableCell setCellValue:@"私信" messageCount:@"0"];
+            break;
+        case 3:
+            [tableCell setCellValue:@"赞我" messageCount:@"1"];
+            break;
+        default:
+            break;
+    }
+    return tableCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0: //评论
+        {
+            CommentViewController *commentViewCtrl = [[CommentViewController alloc] initWithNibName:@"CommentViewController" bundle:nil];
+            [self.navigationController pushViewController:commentViewCtrl animated:YES];
+        }
+            break;
+        case 1: //通知
+        {
+            NoticeViewController *noticeViewCtrl = [[NoticeViewController alloc] initWithNibName:@"NoticeViewController" bundle:nil];
+            [self.navigationController pushViewController:noticeViewCtrl animated:YES];
+        }
+            break;
+        case 2: //私信
+        {
+            PrivateMessageViewController *privateMessageViewCtrl = [[PrivateMessageViewController alloc] initWithNibName:@"PrivateMessageViewController" bundle:nil];
+            [self.navigationController pushViewController:privateMessageViewCtrl animated:YES];
+        }
+            break;
+            case 3: //赞我
+        {
+            EncourageMeViewController *encourageMeViewCtrl = [[EncourageMeViewController alloc] initWithNibName:@"EncourageMeViewController" bundle:nil];
+            [self.navigationController pushViewController:encourageMeViewCtrl animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+    
+}
+
+@end

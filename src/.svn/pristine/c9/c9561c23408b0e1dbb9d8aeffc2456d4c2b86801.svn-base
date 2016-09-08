@@ -1,0 +1,11 @@
+//
+//  RegisterCreatePersonInfViewController.h
+//  mxj
+//  P4-1注册-创建个人资料ViewController头文件
+//  Created by 齐乐乐 on 15/11/9.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+@interface RegisterCreatePersonInfViewController : BaseViewController
+
+@end

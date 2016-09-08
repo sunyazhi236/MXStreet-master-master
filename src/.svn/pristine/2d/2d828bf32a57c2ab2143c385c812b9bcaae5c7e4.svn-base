@@ -1,0 +1,65 @@
+//
+//  SetAccountViewController.m
+//  mxj
+//  P4-2注册-设置账号和密码实现文件
+//  Created by 齐乐乐 on 15/11/9.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "SetAccountViewController.h"
+#import "ValidatePhoneNoViewController.h"
+
+@interface SetAccountViewController ()
+
+@end
+
+@implementation SetAccountViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    //设置导航栏标题
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"top"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationItem setTitle:@"设置账号和密码2/3"];
+    //设置导航栏右上角的下一步按钮
+    UIBarButtonItem *nextBtn = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnClick)];
+    [nextBtn setTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = nextBtn;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+#pragma mark -按钮点击事件处理
+//下一步按钮的点击事件
+-(void)nextBtnClick
+{
+    //弹出确认手机号码对话框
+    UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"确认手机号码" message:@"我们将发送验证码到该手机\n+8618516713700" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *modifyAction = [UIAlertAction actionWithTitle:@"修改" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //跳转至验证手机号画面
+        ValidatePhoneNoViewController *validatePhoneNoViewCtrl = [[ValidatePhoneNoViewController alloc] initWithNibName:@"ValidatePhoneNoViewController" bundle:nil];
+        validatePhoneNoViewCtrl.intoFlag = 0; //从注册界面进入
+        [self.navigationController pushViewController:validatePhoneNoViewCtrl animated:YES];
+    }];
+    [alertCtrl addAction:modifyAction];
+    [alertCtrl addAction:confirmAction];
+    [self presentViewController:alertCtrl animated:YES completion:nil];
+}
+
+//TODO 当手机号已绑定时弹出对话框
+
+@end

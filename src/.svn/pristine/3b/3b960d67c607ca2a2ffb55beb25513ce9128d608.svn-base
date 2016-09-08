@@ -1,0 +1,16 @@
+//
+//  MeFansTableViewTwoCell.h
+//  mxj
+//  P11我的粉丝首行以外的TableCell
+//  Created by 齐乐乐 on 15/11/16.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MeFansTableViewTwoCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UIButton *fansBtn; //关注按钮
+
+
+@end

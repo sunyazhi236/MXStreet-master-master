@@ -1,0 +1,175 @@
+//
+//  SendPrivateMessageViewController.m
+//  mxj
+//  P8-3-1发送私信实现文件
+//  Created by 齐乐乐 on 15/11/13.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "SendPrivateMessageViewController.h"
+#import "SendPrivateMessageCell.h"
+#import "SendPrivateMessageTwoCell.h"
+
+#define LINE_BREAK_WORD_COUNT 12 //12个汉字折行
+#define DEFAULT_CELL_HEIGHT 87   //默认的Cell行高
+
+@interface SendPrivateMessageViewController ()
+{
+    NSArray *messageArray;  //消息数组
+    NSArray *timeArray;     //时间数组
+    CGFloat oneLineHeight;  //单行文字的高度
+}
+@end
+
+@implementation SendPrivateMessageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationItem setTitle:@"daylenzou"];
+    self.sendPrivateMessageTableView.delegate = self;
+    self.sendPrivateMessageTableView.dataSource = self;
+    messageArray = [NSArray arrayWithObjects:@"活动什么时候开始？",
+                    @"10月16号晚八点钟。",
+                    @"人数多的话有优惠的么？",
+                    @"这个活动是只为加点人气，没什么盈利的亲，朋友一起来的话给您送几张优惠券好吗",
+                    nil];
+    timeArray = [NSArray arrayWithObjects:@"2015-10-23 12:59",
+                 @"昨天23:09",
+                 @"今天12:59",
+                 @"今天15:56",
+                 nil];
+    
+    CGRect oneLineRect = [self heightForString:@"测试"];
+    oneLineHeight = oneLineRect.size.height;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark-TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [messageArray count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (0 == indexPath.row % 2) {
+        SendPrivateMessageCell *sendPrivateMessageCell = [tableView dequeueReusableCellWithIdentifier:@"SendPrivateMessageCell"];
+        if (!sendPrivateMessageCell) {
+            sendPrivateMessageCell = [[[NSBundle mainBundle] loadNibNamed:@"SendPrivateMessageCell" owner:self options:nil] lastObject];
+        }
+        //根据文字高度调整Label高度
+        NSString *messageStr = [messageArray objectAtIndex:indexPath.row];
+        CGRect cgRect = [self heightForString:messageStr];
+        CGRect rect = sendPrivateMessageCell.messageLabel.frame;
+        rect.size.width = cgRect.size.width;
+        rect.size.height = cgRect.size.height;
+        
+        //根据文字高度调整ImageView的高度
+        UIImage *image = [UIImage imageNamed:@"kuang_8_3_1"];
+        image = [image stretchableImageWithLeftCapWidth:10 topCapHeight:25];
+        CGRect imageViewRect = sendPrivateMessageCell.kuangImageView.frame;
+        imageViewRect.size.width = rect.size.width + 15 + 10;
+        imageViewRect.size.height = rect.size.height + 10 + 6;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewRect];
+        [imageView setImage:image];
+        [sendPrivateMessageCell.contentView addSubview:imageView];
+        
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:rect];
+        [label setFont:[UIFont systemFontOfSize:15.0f]];
+        [label setNumberOfLines:0];
+        [label setLineBreakMode:NSLineBreakByCharWrapping];
+        [label setTextAlignment:NSTextAlignmentLeft];
+        [label setText:messageStr];
+        [sendPrivateMessageCell.contentView addSubview:label];
+        
+        [sendPrivateMessageCell.messageLabel setHidden:YES];
+        [sendPrivateMessageCell.kuangImageView setHidden:YES];
+        NSArray *viewArray = [sendPrivateMessageCell.contentView subviews];
+        for (UIView *view in viewArray) {
+            if (YES == [view isKindOfClass:[UILabel class]]) {
+                UILabel *timeLabel = (UILabel *)view;
+                [timeLabel setText:[timeArray objectAtIndex:indexPath.row]];
+                break;
+            }
+        }
+        
+        return sendPrivateMessageCell;
+    } else {
+        SendPrivateMessageTwoCell *sendPrivateMessageTwoCell = [tableView dequeueReusableCellWithIdentifier:@"SendPrivateMessageTwoCell"];
+        if (!sendPrivateMessageTwoCell) {
+            sendPrivateMessageTwoCell = [[[NSBundle mainBundle] loadNibNamed:@"SendPrivateMessageTwoCell" owner:self options:nil] lastObject];
+        }
+        //根据文字高度调整Label高度
+        NSString *messageStr = [messageArray objectAtIndex:indexPath.row];
+        CGRect cgRect = [self heightForString:messageStr];
+        CGRect rect = sendPrivateMessageTwoCell.messageLabel.frame;
+        rect.size.width = cgRect.size.width;
+        rect.size.height = cgRect.size.height;
+        
+        //根据文字高度调整ImageView的高度
+        UIImage *image = [UIImage imageNamed:@"kuang02_8_3_1"];
+        image = [image stretchableImageWithLeftCapWidth:10 topCapHeight:25];
+        CGRect imageViewRect = sendPrivateMessageTwoCell.kuangImageView.frame;
+        imageViewRect.origin.x = imageViewRect.origin.x + imageViewRect.size.width - 15 - rect.size.width - 10;
+        imageViewRect.size.width = rect.size.width + 15 + 10;
+        imageViewRect.size.height = rect.size.height + 10 + 6;
+
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageViewRect];
+        [imageView setImage:image];
+        [sendPrivateMessageTwoCell.contentView addSubview:imageView];
+        
+        rect.origin.x = imageView.frame.origin.x + 10;
+        UILabel *label = [[UILabel alloc] initWithFrame:rect];
+        [label setFont:[UIFont systemFontOfSize:15.0f]];
+        [label setNumberOfLines:0];
+        [label setLineBreakMode:NSLineBreakByCharWrapping];
+        [label setTextAlignment:NSTextAlignmentLeft];
+        [label setText:messageStr];
+        [sendPrivateMessageTwoCell.contentView addSubview:label];
+        
+        [sendPrivateMessageTwoCell.messageLabel setHidden:YES];
+        [sendPrivateMessageTwoCell.kuangImageView setHidden:YES];
+        [sendPrivateMessageTwoCell.timeLabel setText:[timeArray objectAtIndex:indexPath.row]];
+        return sendPrivateMessageTwoCell;
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *messageStr = [messageArray objectAtIndex:indexPath.row];
+    CGRect rect= [self heightForString:messageStr];
+    CGFloat addValue = DEFAULT_CELL_HEIGHT - oneLineHeight;
+    
+    return (rect.size.height + addValue);
+}
+
+/**
+ @method 获取指定宽度情况ixa，字符串value的高度
+ @param value 待计算的字符串
+ @param fontSize 字体的大小
+ @param andWidth 限制字符串显示区域的宽度
+ @result float 返回的高度
+ */
+- (CGRect) heightForString:(NSString *)orignStr
+{
+    // 设置Label的字体 HelveticaNeue  Courier
+    UIFont *fnt = [UIFont systemFontOfSize:15.0f];
+    NSDictionary *fontDict = [[NSDictionary alloc] initWithObjectsAndKeys:fnt, NSFontAttributeName, nil];
+    CGSize size = CGSizeMake(180, CGFLOAT_MAX);
+    CGRect rect = [orignStr boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:fontDict context:nil];
+    
+    return rect;
+}
+
+@end

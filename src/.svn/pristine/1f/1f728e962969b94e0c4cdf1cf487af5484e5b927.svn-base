@@ -1,0 +1,16 @@
+//
+//  PositionSetCell.h
+//  mxj
+//  P7-3-1设置位置信息用Cell
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface PositionSetCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *labelName;           //位置名称
+@property (strong, nonatomic) IBOutlet UIImageView *labelImageView;  //位置选中imageView
+
+
+@end

@@ -1,0 +1,16 @@
+//
+//  EditPhotoViewController.h
+//  mxj
+//  P7-2-2编辑照片
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface EditPhotoViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *linkTableView;  //链接TableView
+@property (strong, nonatomic) IBOutlet UIImageView *picImageView; //大图ImageView
+
+@end

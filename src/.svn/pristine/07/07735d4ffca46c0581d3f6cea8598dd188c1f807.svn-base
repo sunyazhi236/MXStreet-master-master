@@ -1,0 +1,73 @@
+//
+//  PhoneBookViewController.m
+//  mxj
+//  P7-5-1-1手机通讯录
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "PhoneBookViewController.h"
+#import "PhoneBookTableOneCell.h"
+#import "PhoneBookTableTwoCell.h"
+
+@interface PhoneBookViewController ()
+
+@end
+
+@implementation PhoneBookViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@"手机通讯录"];
+    self.phoneBookTableView.delegate = self;
+    self.phoneBookTableView.dataSource = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (0 == section) {
+        return self.headOneCell;
+    } else {
+        return self.headTwoCell;
+    }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (0 == indexPath.section) {
+        PhoneBookTableOneCell *phoneBookOneCell = [tableView dequeueReusableCellWithIdentifier:@"PhoneBookTableOneCell"];
+        if (!phoneBookOneCell) {
+            phoneBookOneCell = [[[NSBundle mainBundle] loadNibNamed:@"PhoneBookTableOneCell" owner:self options:nil] lastObject];
+        }
+        return phoneBookOneCell;
+    } else {
+        PhoneBookTableTwoCell *phoneBookTwoCell = [tableView dequeueReusableCellWithIdentifier:@"PhoneBookTableTwoCell"];
+        if (!phoneBookTwoCell) {
+            phoneBookTwoCell = [[[NSBundle mainBundle] loadNibNamed:@"PhoneBookTableTwoCell" owner:self options:nil] lastObject];
+        }
+        return phoneBookTwoCell;
+    }
+}
+
+@end

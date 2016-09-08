@@ -1,0 +1,18 @@
+//
+//  PublishStreetPhotoViewController.h
+//  mxj
+//  P7-2发布街拍-手机相册
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface PublishStreetPhotoViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *publishStreetPhotoTableView;  //表格
+@property (strong, nonatomic) IBOutlet UITableViewCell *firstCell; //首行Cell
+@property (assign, nonatomic) NSInteger intoFlag; //从哪个画面进入的标记 YES：主页进入 NO:发布进入
+
+
+@end

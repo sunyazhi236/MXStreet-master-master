@@ -1,0 +1,51 @@
+//
+//  BlackListViewController.m
+//  mxj
+//  P12-7黑名单
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BlackListViewController.h"
+#import "BlackListCell.h"
+
+@interface BlackListViewController ()
+
+@end
+
+@implementation BlackListViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.navigationItem setTitle:@"黑名单"];
+    self.blackListTableView.delegate = self;
+    self.blackListTableView.dataSource = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 4;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BlackListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BlackListCell"];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"BlackListCell" owner:self options:nil] lastObject];
+    }
+    
+    return cell;
+}
+
+@end

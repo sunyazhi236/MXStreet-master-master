@@ -1,0 +1,25 @@
+//
+//  MainPageTabBarController.h
+//  mxj
+//
+//  Created by 齐乐乐 on 15/11/10.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+@interface MainPageTabBarController : BaseViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITabBarDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *mainPageTableView;       //TableView
+@property (strong, nonatomic) IBOutlet UITableViewCell *imageTableCell;      //广告图Cell
+@property (strong, nonatomic) IBOutlet UITableViewCell *btnTableCell;        //菜单Cell
+
+@property (strong, nonatomic) IBOutlet UIButton *guanzhuBtn;                 //关注按钮
+@property (strong, nonatomic) IBOutlet UIButton *renqiBtn;                   //人气按钮
+@property (strong, nonatomic) IBOutlet UIButton *tongcBtn;                   //同城按钮
+
+@property (strong, nonatomic) IBOutlet UIImageView *cellBackImageView;       //菜单Cell的背景图片
+
+@property (strong, nonatomic) IBOutlet UIScrollView *bannerScrollView;       //广告ScrollView
+@property (strong, nonatomic) IBOutlet UIImageView *bannerImageView;         //广告ImageView
+@property (strong, nonatomic) IBOutlet UIPageControl *bannerPageCtrl;        //广告PageCtrl
+
+@end

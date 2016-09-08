@@ -1,0 +1,19 @@
+//
+//  MyFavoriteViewController.h
+//  mxj
+//  我的收藏
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+#import "JSONKit.h"
+#import "ImageWaterView.h"
+#import "SVPullToRefresh.h"
+
+
+@interface MyFavoriteViewController : BaseViewController
+
+@property (nonatomic, strong)ImageWaterView *waterView;  //瀑布流
+
+@end

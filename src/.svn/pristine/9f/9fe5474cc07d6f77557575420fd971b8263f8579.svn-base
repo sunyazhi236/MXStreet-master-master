@@ -1,0 +1,13 @@
+//
+//  FeedBackViewController.h
+//  mxj
+//  P12-4意见反馈头文件
+//  Created by 齐乐乐 on 15/11/17.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface FeedBackViewController : BaseViewController
+
+@end

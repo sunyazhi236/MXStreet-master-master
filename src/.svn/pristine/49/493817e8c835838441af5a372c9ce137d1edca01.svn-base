@@ -1,0 +1,73 @@
+//
+//  NoticeViewController.m
+//  mxj
+//  P8-2通知实现文件
+//  Created by 齐乐乐 on 15/11/12.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "NoticeViewController.h"
+#import "NoticeTableCell.h"
+
+@interface NoticeViewController ()
+
+@end
+
+@implementation NoticeViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"通知"];
+    UIBarButtonItem *clearBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStylePlain target:self action:@selector(clearBtnClick)];
+    [clearBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                        [UIFont fontWithName:@"Helvetica" size:15.0], NSFontAttributeName,
+                                        [UIColor whiteColor], NSForegroundColorAttributeName,
+                                        nil] forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = clearBarButtonItem;
+    self.noticeTableView.delegate = self;
+    self.noticeTableView.dataSource = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //TODO 按照真实数据进行设置
+    return 4;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NoticeTableCell *noticeTableCell = [tableView dequeueReusableCellWithIdentifier:@"NoticeTableCell"];
+    if (!noticeTableCell) {
+        noticeTableCell = [[[NSBundle mainBundle] loadNibNamed:@"NoticeTableCell" owner:self options:nil] lastObject];
+    }
+    if (3 == indexPath.row) {
+        //隐藏下方的下划线
+        [noticeTableCell.lineImageView setHidden:YES];
+    } else {
+        [noticeTableCell.lineImageView setHidden:NO];
+    }
+    
+    return noticeTableCell;
+}
+
+#pragma mark -按钮点击事件处理
+//右上角清空按钮点击事件
+-(void)clearBtnClick
+{
+    
+}
+
+@end

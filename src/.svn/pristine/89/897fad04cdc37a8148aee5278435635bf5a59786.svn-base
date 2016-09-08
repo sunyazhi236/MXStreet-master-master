@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D08147B1BF18DCC00C19908 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0814791BF18DCC00C19908 /* LoginViewController.m */; };
+		5D08147C1BF18DCC00C19908 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D08147A1BF18DCC00C19908 /* LoginViewController.xib */; };
+		5D0814811BF1AB9300C19908 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D08147F1BF1AB9300C19908 /* ForgetPasswordViewController.m */; };
+		5D0814821BF1AB9300C19908 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0814801BF1AB9300C19908 /* ForgetPasswordViewController.xib */; };
+		5D0814911BF1C65800C19908 /* MainPageTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D08148F1BF1C65800C19908 /* MainPageTabBarController.m */; };
+		5D0814921BF1C65800C19908 /* MainPageTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0814901BF1C65800C19908 /* MainPageTabBarController.xib */; };
+		5DD0C6EC1BF03AD3003D8243 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0C6EB1BF03AD3003D8243 /* main.m */; };
+		5DD0C6EF1BF03AD3003D8243 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0C6EE1BF03AD3003D8243 /* AppDelegate.m */; };
+		5DD0C6F71BF03AD3003D8243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0C6F61BF03AD3003D8243 /* Assets.xcassets */; };
+		5DD0C7021BF040DC003D8243 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0C7011BF040DC003D8243 /* Default-568h@2x.png */; };
+		5DD0C7071BF04421003D8243 /* WelcomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0C7051BF04421003D8243 /* WelcomePageViewController.m */; };
+		5DD0C7081BF04421003D8243 /* WelcomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0C7061BF04421003D8243 /* WelcomePageViewController.xib */; };
+		5DD0C70E1BF05C8B003D8243 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0C70C1BF05C8B003D8243 /* RegisterViewController.m */; };
+		5DD0C70F1BF05C8B003D8243 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0C70D1BF05C8B003D8243 /* RegisterViewController.xib */; };
+		5DD0C7141BF06BC8003D8243 /* RegisterCreatePersonInfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0C7121BF06BC8003D8243 /* RegisterCreatePersonInfViewController.m */; };
+		5DD0C7151BF06BC8003D8243 /* RegisterCreatePersonInfViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0C7131BF06BC8003D8243 /* RegisterCreatePersonInfViewController.xib */; };
+		5DD0C7191BF08AB4003D8243 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0C7181BF08AB4003D8243 /* BaseViewController.m */; };
+		5DD0C71E1BF09D16003D8243 /* UserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0C71C1BF09D16003D8243 /* UserProtocolViewController.m */; };
+		5DD0C71F1BF09D16003D8243 /* UserProtocolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0C71D1BF09D16003D8243 /* UserProtocolViewController.xib */; };
+		5DD0C7241BF0A2C0003D8243 /* SetAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD0C7221BF0A2C0003D8243 /* SetAccountViewController.m */; };
+		5DD0C7251BF0A2C0003D8243 /* SetAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD0C7231BF0A2C0003D8243 /* SetAccountViewController.xib */; };
+		5DD861DF1BF0D291004F2403 /* ValidatePhoneNoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD861DD1BF0D291004F2403 /* ValidatePhoneNoViewController.m */; };
+		5DD861E01BF0D291004F2403 /* ValidatePhoneNoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DD861DE1BF0D291004F2403 /* ValidatePhoneNoViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5D0814781BF18DCC00C19908 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		5D0814791BF18DCC00C19908 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		5D08147A1BF18DCC00C19908 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5D08147E1BF1AB9300C19908 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		5D08147F1BF1AB9300C19908 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		5D0814801BF1AB9300C19908 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		5D08148E1BF1C65800C19908 /* MainPageTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTabBarController.h; sourceTree = "<group>"; };
+		5D08148F1BF1C65800C19908 /* MainPageTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageTabBarController.m; sourceTree = "<group>"; };
+		5D0814901BF1C65800C19908 /* MainPageTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPageTabBarController.xib; sourceTree = "<group>"; };
+		5DD0C6E71BF03AD3003D8243 /* mxj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mxj.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DD0C6EB1BF03AD3003D8243 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5DD0C6ED1BF03AD3003D8243 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5DD0C6EE1BF03AD3003D8243 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5DD0C6F61BF03AD3003D8243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5DD0C6FB1BF03AD3003D8243 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DD0C7011BF040DC003D8243 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5DD0C7041BF04421003D8243 /* WelcomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomePageViewController.h; sourceTree = "<group>"; };
+		5DD0C7051BF04421003D8243 /* WelcomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomePageViewController.m; sourceTree = "<group>"; };
+		5DD0C7061BF04421003D8243 /* WelcomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomePageViewController.xib; sourceTree = "<group>"; };
+		5DD0C70B1BF05C8B003D8243 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		5DD0C70C1BF05C8B003D8243 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		5DD0C70D1BF05C8B003D8243 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		5DD0C7111BF06BC8003D8243 /* RegisterCreatePersonInfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterCreatePersonInfViewController.h; sourceTree = "<group>"; };
+		5DD0C7121BF06BC8003D8243 /* RegisterCreatePersonInfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterCreatePersonInfViewController.m; sourceTree = "<group>"; };
+		5DD0C7131BF06BC8003D8243 /* RegisterCreatePersonInfViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterCreatePersonInfViewController.xib; sourceTree = "<group>"; };
+		5DD0C7171BF08AB4003D8243 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		5DD0C7181BF08AB4003D8243 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		5DD0C71B1BF09D16003D8243 /* UserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProtocolViewController.h; sourceTree = "<group>"; };
+		5DD0C71C1BF09D16003D8243 /* UserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProtocolViewController.m; sourceTree = "<group>"; };
+		5DD0C71D1BF09D16003D8243 /* UserProtocolViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProtocolViewController.xib; sourceTree = "<group>"; };
+		5DD0C7211BF0A2C0003D8243 /* SetAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetAccountViewController.h; sourceTree = "<group>"; };
+		5DD0C7221BF0A2C0003D8243 /* SetAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetAccountViewController.m; sourceTree = "<group>"; };
+		5DD0C7231BF0A2C0003D8243 /* SetAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetAccountViewController.xib; sourceTree = "<group>"; };
+		5DD861DC1BF0D291004F2403 /* ValidatePhoneNoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidatePhoneNoViewController.h; sourceTree = "<group>"; };
+		5DD861DD1BF0D291004F2403 /* ValidatePhoneNoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidatePhoneNoViewController.m; sourceTree = "<group>"; };
+		5DD861DE1BF0D291004F2403 /* ValidatePhoneNoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValidatePhoneNoViewController.xib; sourceTree = "<group>"; };
+		5DD861E11BF0E284004F2403 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5DD0C6E41BF03AD3003D8243 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D0814771BF18DAE00C19908 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5D0814781BF18DCC00C19908 /* LoginViewController.h */,
+				5D0814791BF18DCC00C19908 /* LoginViewController.m */,
+				5D08147A1BF18DCC00C19908 /* LoginViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		5D08147D1BF1AB7A00C19908 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				5D08147E1BF1AB9300C19908 /* ForgetPasswordViewController.h */,
+				5D08147F1BF1AB9300C19908 /* ForgetPasswordViewController.m */,
+				5D0814801BF1AB9300C19908 /* ForgetPasswordViewController.xib */,
+			);
+			name = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		5D0814831BF1B12B00C19908 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				5D08148E1BF1C65800C19908 /* MainPageTabBarController.h */,
+				5D08148F1BF1C65800C19908 /* MainPageTabBarController.m */,
+				5D0814901BF1C65800C19908 /* MainPageTabBarController.xib */,
+			);
+			name = MainPage;
+			sourceTree = "<group>";
+		};
+		5DD0C6DE1BF03AD3003D8243 = {
+			isa = PBXGroup;
+			children = (
+				5DD0C6E91BF03AD3003D8243 /* mxj */,
+				5DD0C6E81BF03AD3003D8243 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5DD0C6E81BF03AD3003D8243 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5DD0C6E71BF03AD3003D8243 /* mxj.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5DD0C6E91BF03AD3003D8243 /* mxj */ = {
+			isa = PBXGroup;
+			children = (
+				5DD0C7031BF04349003D8243 /* ViewCtrl */,
+				5DD0C6ED1BF03AD3003D8243 /* AppDelegate.h */,
+				5DD0C6EE1BF03AD3003D8243 /* AppDelegate.m */,
+				5DD0C6F61BF03AD3003D8243 /* Assets.xcassets */,
+				5DD0C6FB1BF03AD3003D8243 /* Info.plist */,
+				5DD0C6EA1BF03AD3003D8243 /* Supporting Files */,
+			);
+			path = mxj;
+			sourceTree = "<group>";
+		};
+		5DD0C6EA1BF03AD3003D8243 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5DD861E11BF0E284004F2403 /* PrefixHeader.pch */,
+				5DD0C7011BF040DC003D8243 /* Default-568h@2x.png */,
+				5DD0C6EB1BF03AD3003D8243 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DD0C7031BF04349003D8243 /* ViewCtrl */ = {
+			isa = PBXGroup;
+			children = (
+				5D0814831BF1B12B00C19908 /* MainPage */,
+				5D08147D1BF1AB7A00C19908 /* ForgetPassword */,
+				5D0814771BF18DAE00C19908 /* Login */,
+				5DD861DB1BF0D271004F2403 /* ValidatePhoneNo */,
+				5DD0C7201BF0A2A5003D8243 /* SetAccount */,
+				5DD0C71A1BF09CF6003D8243 /* UserProtocol */,
+				5DD0C7161BF08A9F003D8243 /* BaseViewController */,
+				5DD0C7101BF06B9B003D8243 /* RegisterCreatePersonInf */,
+				5DD0C70A1BF05C69003D8243 /* Register */,
+				5DD0C7091BF0442B003D8243 /* WelcomePage */,
+			);
+			name = ViewCtrl;
+			sourceTree = "<group>";
+		};
+		5DD0C7091BF0442B003D8243 /* WelcomePage */ = {
+			isa = PBXGroup;
+			children = (
+				5DD0C7041BF04421003D8243 /* WelcomePageViewController.h */,
+				5DD0C7051BF04421003D8243 /* WelcomePageViewController.m */,
+				5DD0C7061BF04421003D8243 /* WelcomePageViewController.xib */,
+			);
+			name = WelcomePage;
+			sourceTree = "<group>";
+		};
+		5DD0C70A1BF05C69003D8243 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				5DD0C70B1BF05C8B003D8243 /* RegisterViewController.h */,
+				5DD0C70C1BF05C8B003D8243 /* RegisterViewController.m */,
+				5DD0C70D1BF05C8B003D8243 /* RegisterViewController.xib */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		5DD0C7101BF06B9B003D8243 /* RegisterCreatePersonInf */ = {
+			isa = PBXGroup;
+			children = (
+				5DD0C7111BF06BC8003D8243 /* RegisterCreatePersonInfViewController.h */,
+				5DD0C7121BF06BC8003D8243 /* RegisterCreatePersonInfViewController.m */,
+				5DD0C7131BF06BC8003D8243 /* RegisterCreatePersonInfViewController.xib */,
+			);
+			name = RegisterCreatePersonInf;
+			sourceTree = "<group>";
+		};
+		5DD0C7161BF08A9F003D8243 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5DD0C7171BF08AB4003D8243 /* BaseViewController.h */,
+				5DD0C7181BF08AB4003D8243 /* BaseViewController.m */,
+			);
+			name = BaseViewController;
+			sourceTree = "<group>";
+		};
+		5DD0C71A1BF09CF6003D8243 /* UserProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				5DD0C71B1BF09D16003D8243 /* UserProtocolViewController.h */,
+				5DD0C71C1BF09D16003D8243 /* UserProtocolViewController.m */,
+				5DD0C71D1BF09D16003D8243 /* UserProtocolViewController.xib */,
+			);
+			name = UserProtocol;
+			sourceTree = "<group>";
+		};
+		5DD0C7201BF0A2A5003D8243 /* SetAccount */ = {
+			isa = PBXGroup;
+			children = (
+				5DD0C7211BF0A2C0003D8243 /* SetAccountViewController.h */,
+				5DD0C7221BF0A2C0003D8243 /* SetAccountViewController.m */,
+				5DD0C7231BF0A2C0003D8243 /* SetAccountViewController.xib */,
+			);
+			name = SetAccount;
+			sourceTree = "<group>";
+		};
+		5DD861DB1BF0D271004F2403 /* ValidatePhoneNo */ = {
+			isa = PBXGroup;
+			children = (
+				5DD861DC1BF0D291004F2403 /* ValidatePhoneNoViewController.h */,
+				5DD861DD1BF0D291004F2403 /* ValidatePhoneNoViewController.m */,
+				5DD861DE1BF0D291004F2403 /* ValidatePhoneNoViewController.xib */,
+			);
+			name = ValidatePhoneNo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5DD0C6E61BF03AD3003D8243 /* mxj */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DD0C6FE1BF03AD3003D8243 /* Build configuration list for PBXNativeTarget "mxj" */;
+			buildPhases = (
+				5DD0C6E31BF03AD3003D8243 /* Sources */,
+				5DD0C6E41BF03AD3003D8243 /* Frameworks */,
+				5DD0C6E51BF03AD3003D8243 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mxj;
+			productName = mxj;
+			productReference = 5DD0C6E71BF03AD3003D8243 /* mxj.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5DD0C6DF1BF03AD3003D8243 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = bluemobi;
+				TargetAttributes = {
+					5DD0C6E61BF03AD3003D8243 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 5DD0C6E21BF03AD3003D8243 /* Build configuration list for PBXProject "mxj" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5DD0C6DE1BF03AD3003D8243;
+			productRefGroup = 5DD0C6E81BF03AD3003D8243 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5DD0C6E61BF03AD3003D8243 /* mxj */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5DD0C6E51BF03AD3003D8243 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DD0C7151BF06BC8003D8243 /* RegisterCreatePersonInfViewController.xib in Resources */,
+				5DD0C6F71BF03AD3003D8243 /* Assets.xcassets in Resources */,
+				5DD0C7021BF040DC003D8243 /* Default-568h@2x.png in Resources */,
+				5DD0C71F1BF09D16003D8243 /* UserProtocolViewController.xib in Resources */,
+				5DD0C7251BF0A2C0003D8243 /* SetAccountViewController.xib in Resources */,
+				5DD0C7081BF04421003D8243 /* WelcomePageViewController.xib in Resources */,
+				5D0814821BF1AB9300C19908 /* ForgetPasswordViewController.xib in Resources */,
+				5D0814921BF1C65800C19908 /* MainPageTabBarController.xib in Resources */,
+				5DD861E01BF0D291004F2403 /* ValidatePhoneNoViewController.xib in Resources */,
+				5DD0C70F1BF05C8B003D8243 /* RegisterViewController.xib in Resources */,
+				5D08147C1BF18DCC00C19908 /* LoginViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5DD0C6E31BF03AD3003D8243 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DD0C7071BF04421003D8243 /* WelcomePageViewController.m in Sources */,
+				5DD0C7191BF08AB4003D8243 /* BaseViewController.m in Sources */,
+				5DD0C7141BF06BC8003D8243 /* RegisterCreatePersonInfViewController.m in Sources */,
+				5DD0C71E1BF09D16003D8243 /* UserProtocolViewController.m in Sources */,
+				5D0814911BF1C65800C19908 /* MainPageTabBarController.m in Sources */,
+				5D08147B1BF18DCC00C19908 /* LoginViewController.m in Sources */,
+				5DD0C6EF1BF03AD3003D8243 /* AppDelegate.m in Sources */,
+				5DD0C7241BF0A2C0003D8243 /* SetAccountViewController.m in Sources */,
+				5DD0C6EC1BF03AD3003D8243 /* main.m in Sources */,
+				5DD861DF1BF0D291004F2403 /* ValidatePhoneNoViewController.m in Sources */,
+				5D0814811BF1AB9300C19908 /* ForgetPasswordViewController.m in Sources */,
+				5DD0C70E1BF05C8B003D8243 /* RegisterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5DD0C6FC1BF03AD3003D8243 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5DD0C6FD1BF03AD3003D8243 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5DD0C6FF1BF03AD3003D8243 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
+				INFOPLIST_FILE = mxj/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluemobi.mxj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5DD0C7001BF03AD3003D8243 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = PrefixHeader.pch;
+				INFOPLIST_FILE = mxj/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluemobi.mxj;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5DD0C6E21BF03AD3003D8243 /* Build configuration list for PBXProject "mxj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DD0C6FC1BF03AD3003D8243 /* Debug */,
+				5DD0C6FD1BF03AD3003D8243 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5DD0C6FE1BF03AD3003D8243 /* Build configuration list for PBXNativeTarget "mxj" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DD0C6FF1BF03AD3003D8243 /* Debug */,
+				5DD0C7001BF03AD3003D8243 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5DD0C6DF1BF03AD3003D8243 /* Project object */;
+}

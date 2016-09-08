@@ -1,0 +1,13 @@
+//
+//  BlackListCell.h
+//  mxj
+//  P12-7黑名单
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface BlackListCell : UITableViewCell
+
+@end

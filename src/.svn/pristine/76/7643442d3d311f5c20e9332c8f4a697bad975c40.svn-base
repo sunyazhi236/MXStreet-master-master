@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1a6bc7da-0ca3-304e-afb4-3a088f01c364++6213",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "1a6bc7da-0ca3-304e-afb4-3a088f01c364++6213" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1a6bc7da-0ca3-304e-afb4-3a088f01c364++6213" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C5AC4C18-2F73-4812-B4C3-0B31824F5F55",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1a6bc7da-0ca3-304e-afb4-3a088f01c364++6213" : "mxj\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "mxj",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "mxj.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn001.bluemobi.cn\/svn\/kj201500157mxj",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1a6bc7da-0ca3-304e-afb4-3a088f01c364++6213"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+//
+//  EncourageMeViewController.m
+//  mxj
+//  P8-4赞我实现文件
+//  Created by 齐乐乐 on 15/11/13.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "EncourageMeViewController.h"
+#import "EncourageMeTableCell.h"
+
+@interface EncourageMeViewController ()
+
+@end
+
+@implementation EncourageMeViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"赞我"];
+    self.encourageMeTableView.delegate = self;
+    self.encourageMeTableView.dataSource = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EncourageMeTableCell *tableCell = [tableView dequeueReusableCellWithIdentifier:@"EncourageMeTableCell"];
+    if (!tableCell) {
+        tableCell = [[[NSBundle mainBundle] loadNibNamed:@"EncourageMeTableCell" owner:self options:nil] lastObject];
+    }
+    return tableCell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+@end

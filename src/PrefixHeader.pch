@@ -1,0 +1,148 @@
+//
+//  PrefixHeader.pch
+//  mxj
+//
+//  Created by 齐乐乐 on 15/11/9.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+
+//------------------------------全局开关-----------------------------------
+#define OPEN_NET_INTERFACE //是否开启网络访问，注释掉时关闭网络访问
+//#define PACKAGEFORTEST     //是否开启测试，作为打包的开关，打包时注释掉
+#define CACHE_SWITCH       //缓存开关 注释掉时为关闭状态
+//------------------------------------------------------------------------
+
+#ifdef CACHE_SWITCH
+//缓存文件夹路径
+#define CACHE_PATH [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"cache"]
+#endif
+
+//包含的共通头文件
+#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
+#import "MKNetworkKit.h"
+#import "NetInterface.h"
+#import "Interface.h"
+#import "WZLBadgeImport.h"
+#import "MXJBaseModel.h"
+
+#import "UserImageViewClickProtocol.h"
+
+#import <objc/runtime.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "EGOImageView.h"
+#import "MBProgressHUD.h"
+#import "TouchPositionModel.h"
+#import "LabelButton.h"
+#import "SVPullToRefresh.h" //上拉下拉刷新
+#import "MyButton.h"
+#import "MyLabel.h"
+#import "MyALAsset.h"
+#import "CustomLabel.h"
+#import "NSArray+SHYUtil.h"
+#import "Macro.h"
+//第三方分享头文件
+//腾讯
+#import <TencentOpenAPI/QQApiInterfaceObject.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+//新浪
+#import "WeiboSDK.h"
+//微信
+#import "WXApi.h"
+//短信
+#import <SMS_SDK/SMSSDK.h>
+
+//地图定位
+#import <AMapLocationKit/AMapLocationKit.h>
+#import <AMapLocationKit/AMapLocationCommonObj.h>
+//地图
+#import "MAMapKit.h"
+#import <AMapSearchKit/AMapSearchKit.h>
+
+//极光推送
+#import "JPUSHService.h"
+
+#import "CustomUtil.h"
+#import "MyTextField.h"
+#import "MyTextView.h"
+#import "NSString+Extension.h"
+
+#ifdef CACHE_SWITCH
+    #import "CacheService.h" //缓存服务
+#else
+
+#endif
+
+// add by wayne
+#define FONT(a) [UIFont systemFontOfSize:(a)]
+#define BOLD_FONT(a) [UIFont boldSystemFontOfSize:(a)]
+#define GetX(a)  (a.frame.origin.x)
+#define GetY(a)  (a.frame.origin.y)
+#define GetWidth(a)  (a.frame.size.width)
+#define GetHeight(a)  (a.frame.size.height)
+#define GetBottom(a)  (a.frame.origin.y+a.frame.size.height)
+#define GetRight(a)  (a.frame.origin.x+a.frame.size.width)
+#define RGB(a,b,c,d)      [UIColor colorWithRed:(a)/255.f green:(b)/255.f blue:(c)/255.f alpha:(d)]
+
+//共通的其它宏定义
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+#define SCREEN_SCALE [[UIScreen mainScreen] scale]
+
+#define RETURN_SUCCESS(X) YES==[@"1" isEqualToString:X]
+#define kWindow [UIApplication sharedApplication].keyWindow
+
+#define TABBAR_ITEM_COUNT 5 //Tabbar元素个数
+
+#ifdef CACHE_SWITCH
+    #define VIEWCONTROLLER_NAME NSStringFromClass([self class]) //当前视图控制器名称
+#endif
+
+
+//屏幕的长宽
+#define kScreenWidth  [[UIScreen mainScreen] bounds].size.width
+#define kScreenHeight [[UIScreen mainScreen] bounds].size.height
+/*代码适配等比例拉伸（纯代码适配也可以用masonry）*/
+#define kSCREEN_WIDTH_RATIO (kScreenWidth > 375.0f ? kScreenWidth/320.0f : 1)
+#define kSCREEN_HEIGHT_RATIO (kScreenHeight > 667.0f ? kScreenHeight/568.0f : 1)
+#define kAutoWEX(w) ((w)*kSCREEN_WIDTH_RATIO)
+#define kAutoHEX(h) ((h)*kSCREEN_HEIGHT_RATIO)
+
+
+//第三方分享用宏定义
+//新浪微博：
+#define XINLANGWEIBO_APPKEY @"455546230"
+#define XINLANGWEIBO_APPSECRET @"f86dba96dd7f9b613e94a188589aed7c"
+#define XINLANGWEIBO_REDIRECTURL @"http://www.sharesdk.cn"
+//QQ
+#define QQ_APPKEY @"1104832704"
+#define QQ_APPSECRET @"iaBCcYKQ34gQ3Au9"
+//微信：
+#define WEIXIN_APPKEY @"wxb36f371fcf564ec8"
+#define WEIXIN_SECRET @"10dc5303c945f0cbee58f49af89b03ec"
+//高德地图：
+//#define GAODEDITU_APPKEY @"ce834a851195fbcebd3ef9aba4595b5d"
+#define GAODEDITU_APPKEY @"d7963693cdee02d81de91dfd7c82f92d"
+
+//短信验证：
+#define DUANXINYANZHENG_APPKEY @"c2b4691f6eac"
+#define DUANXINYANZHENG_SECRET @"1925ce6eda1aea82cd4c656af0d8c850"
+//极光推送：
+#define JIGUANGTUISONG_APPKEY @"ab7537175b4b69d66c0e4f50"
+#define JIGUANGTUISONG_SECRET @"1b818923636a21c44931fe0c"
+
+//分享数据
+#define SHARE_IMAGE @"/maoxj/images/shareImage.png"  //分享链接的图片
+#define SHARE_URL @"a.app.qq.com/o/simple.jsp?pkgname=com.bluemobi.yarnstreet" //分享链接地址
+#define SHARE_TEXT @"欢迎加入毛线街 http://a.app.qq.com/o/simple.jsp?pkgname=com.bluemobi.yarnstreet"      //分享文本内容
+#define SHARE_TEXT_NO_URL @"【我已加入「毛线街」，你也赶快来和我一起逛街吧http://a.app.qq.com/o/simple.jsp?pkgname=com.bluemobi.yarnstreet（分享自@毛线街 -不仅仅是毛线）】" //分享文本内容（无URL地址）

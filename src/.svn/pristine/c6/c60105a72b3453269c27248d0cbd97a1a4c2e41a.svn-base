@@ -1,0 +1,11 @@
+//
+//  BaseViewController.h
+//  mxj
+//  视图控制器基类头文件
+//  Created by 齐乐乐 on 15/11/9.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+@interface BaseViewController : UIViewController
+
+@end

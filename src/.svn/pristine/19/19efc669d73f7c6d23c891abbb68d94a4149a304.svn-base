@@ -1,0 +1,112 @@
+//
+//  SendPrivateMessageViewController.m
+//  mxj
+//  P8-3-1发送私信实现文件
+//  Created by 齐乐乐 on 15/11/13.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "SendPrivateMessageViewController.h"
+#import "SendPrivateMessageCell.h"
+
+#define LINE_BREAK_WORD_COUNT 12.0f //12个汉字折行
+
+@interface SendPrivateMessageViewController ()
+{
+    NSArray *messageArray;  //消息数组
+}
+@end
+
+@implementation SendPrivateMessageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationItem setTitle:@"daylenzou"];
+    self.sendPrivateMessageTableView.delegate = self;
+    self.sendPrivateMessageTableView.dataSource = self;
+    messageArray = [NSArray arrayWithObjects:@"活动什么时候开始？",
+                    @"10月16号晚八点钟。",
+                    @"人数多的话有优惠的么？",
+                    @"这个活动是只为加点人气，没什么盈利的亲，朋友一起来的话给您送几张优惠券好吗",
+                    nil];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark-TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [messageArray count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SendPrivateMessageCell *sendPrivateMessageCell = [tableView dequeueReusableCellWithIdentifier:@"SendPrivateMessageCell"];
+    if (!sendPrivateMessageCell) {
+        sendPrivateMessageCell = [[[NSBundle mainBundle] loadNibNamed:@"SendPrivateMessageCell" owner:self options:nil] lastObject];
+    }
+    NSString *messageStr = [messageArray objectAtIndex:indexPath.row];
+    NSInteger lineCount = (NSInteger)ceil(messageStr.length/LINE_BREAK_WORD_COUNT);
+    CGSize size = CGSizeMake(180, 1000);
+    
+    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:messageStr];
+    sendPrivateMessageCell.messageLabel.attributedText = attrStr;
+    NSRange range = NSMakeRange(0, attrStr.length);
+    NSDictionary *dic = [attrStr attributesAtIndex:0 effectiveRange:&range];   // 获取该段attributedString的属性字典
+    // 计算文本的大小
+    CGSize textSize = [messageStr boundingRectWithSize:sendPrivateMessageCell.messageLabel.bounds.size // 用于计算文本绘制时占据的矩形块
+                                                  options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading // 文本绘制时的附加选项
+                                               attributes:dic        // 文字的属性
+                                                  context:nil].size; // context上下文。包括一些信息，例如如何调整字间距以及缩放。该对象包含的信息将用于文本绘制。该参数可为nil
+    [sendPrivateMessageCell.messageLabel setFrame:CGRectMake(sendPrivateMessageCell.messageLabel.frame.origin.x, sendPrivateMessageCell.messageLabel.frame.origin.y, sendPrivateMessageCell.messageLabel.frame.size.width, textSize.height)];
+    [sendPrivateMessageCell.messageLabel setBackgroundColor:[UIColor greenColor]];
+    
+    //TODO 根据文字高度调整Label及ImageView的高度
+    
+    sendPrivateMessageCell.messageLabel.numberOfLines = lineCount;
+    //[sendPrivateMessageCell.messageLabel setText:messageStr];
+    /*
+    UIImage *image = [UIImage imageNamed:@"kuang_8_3_1"];
+    image = [image stretchableImageWithLeftCapWidth:10 topCapHeight:10];
+    [sendPrivateMessageCell.kuangImageView setImage:image];
+    */
+    
+    return sendPrivateMessageCell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *messageStr = [messageArray objectAtIndex:indexPath.row];
+    NSInteger lineCount = (NSInteger)ceil(messageStr.length/LINE_BREAK_WORD_COUNT);
+    //87 + message的高度*（linecount -1)
+    CGSize size = [self heightForString:messageStr];
+    return size.height * (lineCount - 1) + 87;
+}
+
+/**
+ @method 获取指定宽度情况ixa，字符串value的高度
+ @param value 待计算的字符串
+ @param fontSize 字体的大小
+ @param andWidth 限制字符串显示区域的宽度
+ @result float 返回的高度
+ */
+- (CGSize) heightForString:(NSString *)orignStr
+{
+    // 设置Label的字体 HelveticaNeue  Courier
+    UIFont *fnt = [UIFont systemFontOfSize:15.0f];
+    // 根据字体得到NSString的尺寸
+    CGSize size = [orignStr sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:fnt,NSFontAttributeName, nil]];
+    
+    return size;
+}
+
+@end

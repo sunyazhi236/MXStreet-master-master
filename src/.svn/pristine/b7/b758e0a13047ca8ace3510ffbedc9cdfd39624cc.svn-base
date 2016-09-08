@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PublishViewController">
+            <connections>
+                <outlet property="positionSetImagView" destination="hgb-N6-IRk" id="BtO-1o-TDU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="YCK-1C-hSh">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top" translatesAutoresizingMaskIntoConstraints="NO" id="WZC-I4-ZfG">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0S1-VG-NRR">
+                    <rect key="frame" x="8" y="33" width="10" height="18"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="return"/>
+                    <connections>
+                        <action selector="backBtnClick:" destination="-1" eventType="touchUpInside" id="o7a-ui-TC3"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="街拍发布" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqT-pJ-0Lj">
+                    <rect key="frame" x="126" y="32" width="68" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4t-c7-jJb">
+                    <rect key="frame" x="266" y="27" width="46" height="30"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="发布">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="publishBtnClick:" destination="-1" eventType="touchUpInside" id="zc0-PV-Wf7"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="input7_3" translatesAutoresizingMaskIntoConstraints="NO" id="RDQ-sM-3ci">
+                    <rect key="frame" x="0.0" y="64" width="320" height="230"/>
+                    <animations/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="有什么想说的吗？（140个字以内）" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vut-lt-SlR">
+                    <rect key="frame" x="0.0" y="64" width="320" height="145"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="line7_3" translatesAutoresizingMaskIntoConstraints="NO" id="EgQ-M9-3mx">
+                    <rect key="frame" x="10" y="209" width="300" height="1"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic7_3" translatesAutoresizingMaskIntoConstraints="NO" id="YSc-7d-IWv">
+                    <rect key="frame" x="8" y="225" width="60" height="60"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bw8-cQ-DM5">
+                    <rect key="frame" x="60" y="220" width="12" height="12"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="delete7_3"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic7_3" translatesAutoresizingMaskIntoConstraints="NO" id="Jaq-wz-09e">
+                    <rect key="frame" x="76" y="225" width="60" height="60"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gkp-ir-3ZT">
+                    <rect key="frame" x="128" y="220" width="12" height="12"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="delete7_3"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lG4-Ic-fYM">
+                    <rect key="frame" x="144" y="225" width="60" height="60"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="plus7_3"/>
+                    <connections>
+                        <action selector="plusBtnClick:" destination="-1" eventType="touchUpInside" id="1vO-Mu-qA2"/>
+                    </connections>
+                </button>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="row7_3" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-N6-IRk">
+                    <rect key="frame" x="0.0" y="303" width="320" height="44"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add7_3" translatesAutoresizingMaskIntoConstraints="NO" id="L5X-fl-2lh">
+                    <rect key="frame" x="8" y="316" width="15" height="18"/>
+                    <animations/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上海市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4G-6s-cC7">
+                    <rect key="frame" x="34" y="314" width="51" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow7_3" translatesAutoresizingMaskIntoConstraints="NO" id="Hce-qM-UTC">
+                    <rect key="frame" x="303" y="316" width="9" height="16"/>
+                    <animations/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="同步到：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef2-df-FSo">
+                    <rect key="frame" x="8" y="371" width="62" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUA-Td-gtQ">
+                    <rect key="frame" x="76" y="362" width="40" height="40"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="weixin7_3"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocp-PG-1I8">
+                    <rect key="frame" x="130" y="362" width="40" height="40"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="pengyq7_3"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4T-HQ-JX0">
+                    <rect key="frame" x="185" y="362" width="40" height="40"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="weibo7_3"/>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="325" y="352"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="add7_3" width="15" height="18"/>
+        <image name="arrow7_3" width="9" height="16"/>
+        <image name="bg" width="640" height="1136"/>
+        <image name="delete7_3" width="12" height="12"/>
+        <image name="input7_3" width="320" height="230"/>
+        <image name="line7_3" width="1" height="1"/>
+        <image name="pengyq7_3" width="40" height="40"/>
+        <image name="pic7_3" width="60" height="60"/>
+        <image name="plus7_3" width="60" height="60"/>
+        <image name="return" width="10" height="18"/>
+        <image name="row7_3" width="320" height="44"/>
+        <image name="top" width="320" height="64"/>
+        <image name="weibo7_3" width="40" height="40"/>
+        <image name="weixin7_3" width="40" height="40"/>
+    </resources>
+</document>

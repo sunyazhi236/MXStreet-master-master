@@ -1,0 +1,24 @@
+//
+//  PersonDocViewController.h
+//  mxj
+//  P12-1个人资料
+//  Created by 齐乐乐 on 15/11/17.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface PersonDocViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *personDocTableView; //个人资料TableView
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *touXiangCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *niChengCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *xingBieCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *chuShengNianYueCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *suoZaiDiQuCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *dianPuCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *geXingQianMingCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *zhuCeShiJianCell;
+
+@end

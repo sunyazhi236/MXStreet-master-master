@@ -1,0 +1,63 @@
+//
+//  MyStreetPhotoViewController.m
+//  mxj
+//  P9-1我的街拍
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "MyStreetPhotoViewController.h"
+#import "MeFansViewController.h"
+#import "ConcernManViewController.h"
+
+@interface MyStreetPhotoViewController ()
+
+@end
+
+@implementation MyStreetPhotoViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//返回按钮点击事件
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//更多按钮点击事件
+- (IBAction)moreBtnClick:(id)sender {
+}
+
+//编辑资料按钮点击事件
+- (IBAction)editDocBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//粉丝按钮点击事件
+- (IBAction)fenSiBtnClick:(id)sender {
+    MeFansViewController *meFansViewCtrl = [[MeFansViewController alloc] initWithNibName:@"MeFansViewController" bundle:nil];
+    [self.navigationController pushViewController:meFansViewCtrl animated:YES];
+}
+
+//关注按钮点击事件
+- (IBAction)guanZhuBtnClick:(id)sender {
+    ConcernManViewController *concernManViewCtrl = [[ConcernManViewController alloc] initWithNibName:@"ConcernManViewController" bundle:nil];
+    [self.navigationController pushViewController:concernManViewCtrl animated:YES];
+}
+
+
+@end

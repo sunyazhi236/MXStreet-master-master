@@ -1,0 +1,70 @@
+//
+//  OverSeaSelectViewController.m
+//  mxj
+//
+//  Created by 齐乐乐 on 15/11/11.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "OverSeaSelectViewController.h"
+#import "OverSeaTableCell.h"
+
+@interface OverSeaSelectViewController ()
+
+@end
+
+@implementation OverSeaSelectViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationItem setTitle:@"海外地区选择"];
+    [self.overSeaSelectTableView setDelegate:self];
+    [self.overSeaSelectTableView setDataSource:self];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    OverSeaTableCell *cell = (OverSeaTableCell *)[tableView dequeueReusableCellWithIdentifier:@"overSeaTableCellIdentifier"];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"OverSeaTableCell" owner:self options:nil] lastObject];
+    }
+    switch (indexPath.row) {
+        case 0:
+            [cell setCell:@"A"];
+            break;
+        case 1:
+            [cell setCell:@"B"];
+            break;
+        case 2:
+            [cell setCell:@"C"];
+            break;
+        default:
+            break;
+    }
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+@end

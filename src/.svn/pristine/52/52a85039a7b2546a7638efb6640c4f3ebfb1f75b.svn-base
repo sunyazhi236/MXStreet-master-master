@@ -1,0 +1,148 @@
+//
+//  PersonDocViewController.m
+//  mxj
+//  P12-1个人资料
+//  Created by 齐乐乐 on 15/11/17.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "PersonDocViewController.h"
+#import "NickNameViewController.h"
+#import "SexSetViewController.h"
+#import "OwnAreaViewController.h"
+#import "StoreSetViewController.h"
+#import "SignatureViewController.h"
+#import "MyStreetPhotoViewController.h"
+
+@interface PersonDocViewController ()
+
+@end
+
+@implementation PersonDocViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationItem setTitle:@"个人资料"];
+    self.personDocTableView.delegate = self;
+    self.personDocTableView.dataSource = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return 79.5;
+            break;
+            
+        default:
+            break;
+    }
+    return 44;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 8;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return self.touXiangCell;
+            break;
+        case 1:
+            return self.niChengCell;
+            break;
+        case 2:
+            return self.xingBieCell;
+            break;
+        case 3:
+            return self.chuShengNianYueCell;
+            break;
+        case 4:
+            return self.suoZaiDiQuCell;
+            break;
+        case 5:
+            return self.dianPuCell;
+            break;
+        case 6:
+            return self.geXingQianMingCell;
+            break;
+        case 7:
+            return self.zhuCeShiJianCell;
+            break;
+        default:
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:  //头像
+        {
+            MyStreetPhotoViewController *myStreetPhotoViewCtrl = [[MyStreetPhotoViewController alloc] initWithNibName:@"MyStreetPhotoViewController" bundle:nil];
+            [self.navigationController pushViewController:myStreetPhotoViewCtrl animated:YES];
+        }
+            break;
+        case 1: //昵称
+        {
+            NickNameViewController *nickNameViewCtrl = [[NickNameViewController alloc] initWithNibName:@"NickNameViewController" bundle:nil];
+            [self.navigationController pushViewController:nickNameViewCtrl animated:YES];
+        }
+            break;
+        case 2: //性别
+        {
+            SexSetViewController *sexSetViewCtrl = [[SexSetViewController alloc] initWithNibName:@"SexSetViewController" bundle:nil];
+            [self.navigationController pushViewController:sexSetViewCtrl animated:YES];
+        }
+            break;
+        case 3: //出生年月
+            break;
+        case 4: //所在地区
+        {
+            //跳转至P12-1-3所在地区界面
+            OwnAreaViewController *ownAreaViewCtrl = [[OwnAreaViewController alloc] initWithNibName:@"OwnAreaViewController" bundle:nil];
+            [self.navigationController pushViewController:ownAreaViewCtrl animated:YES];
+        }
+            break;
+        case 5: //店铺
+        {
+            StoreSetViewController *storeSetViewCtrl = [[StoreSetViewController alloc] initWithNibName:@"StoreSetViewController" bundle:nil];
+            [self.navigationController pushViewController:storeSetViewCtrl animated:YES];
+        }
+            break;
+        case 6: //个性签名
+        {
+            SignatureViewController *signatureViewCtrl = [[SignatureViewController alloc] initWithNibName:@"SignatureViewController" bundle:nil];
+            [self.navigationController pushViewController:signatureViewCtrl animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+@end

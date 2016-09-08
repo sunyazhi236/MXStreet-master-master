@@ -1,0 +1,21 @@
+//
+//  StreetPhotoDetailViewController.h
+//  mxj
+//  P7-4街拍详情
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface StreetPhotoDetailViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *detailTableView;  //详情TableView
+@property (strong, nonatomic) IBOutlet UITableViewCell *firstCell;    //首行Cell
+@property (strong, nonatomic) IBOutlet UITableViewCell *secondCell;   //图片Cell
+@property (strong, nonatomic) IBOutlet UITextField *inputTextField;   //评论TextField
+@property (strong, nonatomic) IBOutlet UIImageView *picImageView;     //照片imageView
+
+
+
+@end

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditPhotoViewController">
+            <connections>
+                <outlet property="linkTableView" destination="v7r-hE-cP9" id="9kq-t4-fGx"/>
+                <outlet property="picImageView" destination="FdG-RS-IJQ" id="TSV-t9-fXk"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="059-H6-WPA">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top" translatesAutoresizingMaskIntoConstraints="NO" id="eUF-dJ-grT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTM-yv-aVL">
+                    <rect key="frame" x="8" y="33" width="10" height="18"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="return"/>
+                    <connections>
+                        <action selector="backBtnClick:" destination="-1" eventType="touchUpInside" id="P31-Xb-MeF"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="编辑照片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogl-1n-LeD">
+                    <rect key="frame" x="126" y="32" width="68" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39X-oG-qJK">
+                    <rect key="frame" x="267" y="27" width="45" height="30"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextBtnClick:" destination="-1" eventType="touchUpInside" id="Rkb-nD-K50"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="floor7-2-2" translatesAutoresizingMaskIntoConstraints="NO" id="Bw8-0N-oqN">
+                    <rect key="frame" x="0.0" y="64" width="320" height="55"/>
+                    <animations/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic02-bg7-2-2" translatesAutoresizingMaskIntoConstraints="NO" id="QTE-DZ-OUI">
+                    <rect key="frame" x="15" y="68" width="47" height="47"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0A-Bd-vtw">
+                    <rect key="frame" x="16" y="69" width="45" height="45"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="pic02-7-2-2"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic02-bg2-7-2-2" translatesAutoresizingMaskIntoConstraints="NO" id="NlU-N5-XEb">
+                    <rect key="frame" x="69" y="68" width="47" height="47"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02N-df-SWx">
+                    <rect key="frame" x="70" y="69" width="45" height="45"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="pic02-7-2-2"/>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic02-bg2-7-2-2" translatesAutoresizingMaskIntoConstraints="NO" id="H0q-L6-PQG">
+                    <rect key="frame" x="122" y="68" width="47" height="47"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSX-91-9wg">
+                    <rect key="frame" x="123" y="69" width="45" height="45"/>
+                    <animations/>
+                    <state key="normal" backgroundImage="pic02-7-2-2"/>
+                </button>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic7-2-2" translatesAutoresizingMaskIntoConstraints="NO" id="FdG-RS-IJQ">
+                    <rect key="frame" x="0.0" y="123" width="320" height="320"/>
+                    <animations/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9k-bG-sGU">
+                    <rect key="frame" x="38" y="162" width="70" height="23"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="毛衣" image="link-off7-2-2" backgroundImage="rabel7-2-2">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="（长按下面地址栏以粘贴复制的链接）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcS-o9-6Ds">
+                    <rect key="frame" x="0.0" y="453" width="289" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7r-hE-cP9">
+                    <rect key="frame" x="0.0" y="474" width="320" height="94"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQO-bj-nky">
+                    <rect key="frame" x="213" y="219" width="70" height="23"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="毛线" image="link-on7-2-2" backgroundImage="rabel7-2-2">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="v7r-hE-cP9" secondAttribute="bottom" id="K3T-3X-Q1v"/>
+                <constraint firstItem="v7r-hE-cP9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="474" id="Kn4-4v-ZOL"/>
+                <constraint firstAttribute="trailing" secondItem="v7r-hE-cP9" secondAttribute="trailing" id="SV0-6X-kN5"/>
+                <constraint firstItem="v7r-hE-cP9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mza-K8-YzZ"/>
+            </constraints>
+            <point key="canvasLocation" x="320" y="367"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg" width="640" height="1136"/>
+        <image name="floor7-2-2" width="319" height="55"/>
+        <image name="link-off7-2-2" width="14" height="14"/>
+        <image name="link-on7-2-2" width="14" height="14"/>
+        <image name="pic02-7-2-2" width="45" height="45"/>
+        <image name="pic02-bg2-7-2-2" width="46" height="46"/>
+        <image name="pic02-bg7-2-2" width="46" height="46"/>
+        <image name="pic7-2-2" width="320" height="320"/>
+        <image name="rabel7-2-2" width="70" height="23"/>
+        <image name="return" width="10" height="18"/>
+        <image name="top" width="320" height="64"/>
+    </resources>
+</document>

@@ -1,0 +1,17 @@
+//
+//  ValidatePhoneNoViewController.h
+//  mxj
+//  P4-3验证手机号头文件
+//  Created by 齐乐乐 on 15/11/9.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+@interface ValidatePhoneNoViewController : BaseViewController<UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel; //时间标签
+@property (strong, nonatomic) IBOutlet UIButton *getValidateBtn; //获取验证码按钮
+@property (assign, nonatomic) BOOL intoFlag; //入口标记 0:注册进入 1:忘记密码进入
+@property (weak, nonatomic) IBOutlet UITextField *validateNoTextFiled; //验证码输入区域
+@property (copy, nonatomic) NSString *phoneNumber; //手机号
+
+@end

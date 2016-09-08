@@ -1,0 +1,118 @@
+//
+//  ConcernManViewController.m
+//  mxj
+//  P10我的关注视图控制器实现文件
+//  Created by 齐乐乐 on 15/11/15.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "ConcernManViewController.h"
+#import "ConcernManTableCellOne.h"
+#import "ConcernManTableViewCell.h"
+
+@interface ConcernManViewController ()
+
+@end
+
+@implementation ConcernManViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"关注的人"];
+    [self.concernManTableView setDelegate:self];
+    [self.concernManTableView setDataSource:self];
+    //右上角放大镜按钮
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"search_10"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClick)];
+    [rightBtn setTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = rightBtn;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //TODO根据实际数据进行设置
+    return 4;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return 54;
+        default:
+            break;
+    }
+    return 44;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+        {
+            ConcernManTableViewCell *concernManCell = [tableView dequeueReusableCellWithIdentifier:@"ConcernManTableViewCell"];
+            if (!concernManCell) {
+                concernManCell = [[[NSBundle mainBundle] loadNibNamed:@"ConcernManTableViewCell" owner:self options:nil] lastObject];
+            }
+            [concernManCell.alreadyConcernBtn setBackgroundImage:[UIImage imageNamed:@"btn02_10"] forState:UIControlStateNormal];
+            [concernManCell.alreadyConcernBtn setTitleColor:[UIColor colorWithRed:198/255.0 green:0 blue:0 alpha:1.0] forState:UIControlStateNormal];
+            [concernManCell.alreadyConcernBtn setTitle:@"已关注" forState:UIControlStateNormal];
+            return concernManCell;
+        }
+            break;
+        case 1:
+        case 2:
+        {
+            ConcernManTableCellOne *concernManCell = [tableView dequeueReusableCellWithIdentifier:@"ConcernManTableCellOne"];
+            if (!concernManCell) {
+                concernManCell = [[[NSBundle mainBundle] loadNibNamed:@"ConcernManTableCellOne" owner:self options:nil] lastObject];
+            }
+            [concernManCell.alreadyConcernBtn setBackgroundImage:[UIImage imageNamed:@"btn02_10"] forState:UIControlStateNormal];
+            [concernManCell.alreadyConcernBtn setTitleColor:[UIColor colorWithRed:198/255.0 green:0 blue:0 alpha:1.0] forState:UIControlStateNormal];
+            [concernManCell.alreadyConcernBtn setTitle:@"已关注" forState:UIControlStateNormal];
+            return concernManCell;
+        }
+            break;
+        case 3:
+        {
+            ConcernManTableCellOne *concernManCell = [tableView dequeueReusableCellWithIdentifier:@"ConcernManTableCellOne"];
+            if (!concernManCell) {
+                concernManCell = [[[NSBundle mainBundle] loadNibNamed:@"ConcernManTableCellOne" owner:self options:nil] lastObject];
+            }
+            [concernManCell.alreadyConcernBtn setBackgroundImage:[UIImage imageNamed:@"btn_10"] forState:UIControlStateNormal];
+            [concernManCell.alreadyConcernBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [concernManCell.alreadyConcernBtn setTitle:@"互为关注" forState:UIControlStateNormal];
+            return concernManCell;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+//右侧放大镜按钮的点击事件
+- (void)rightBtnClick
+{
+    //TODO
+}
+
+@end

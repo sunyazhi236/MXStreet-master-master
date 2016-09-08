@@ -1,0 +1,17 @@
+//
+//  NoticeViewController.h
+//  mxj
+//  P8-2通知头文件
+//  Created by 齐乐乐 on 15/11/12.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "BaseViewController.h"
+
+@interface NoticeViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *noticeTableView;  //通知TableView
+
+@property (nonatomic, weak) BaseViewController *currentViewController;
+
+@end

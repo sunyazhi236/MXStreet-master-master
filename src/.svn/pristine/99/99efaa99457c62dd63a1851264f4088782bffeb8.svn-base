@@ -1,0 +1,91 @@
+//
+//  EditPhotoViewController.m
+//  mxj
+//  P7-2-2编辑照片
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "EditPhotoViewController.h"
+#import "EditPhotoCell.h"
+#import "CustomLabelViewController.h"
+#import "PublishViewController.h"
+
+@interface EditPhotoViewController ()
+
+@end
+
+@implementation EditPhotoViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.linkTableView.delegate = self;
+    self.linkTableView.dataSource = self;
+    //为大图添加点击事件
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImageView:)];
+    [self.picImageView addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    EditPhotoCell *editPhotoCell = [tableView dequeueReusableCellWithIdentifier:@"EditPhotoCell"];
+    if (!editPhotoCell) {
+        editPhotoCell = [[[NSBundle mainBundle] loadNibNamed:@"EditPhotoCell" owner:self options:nil] lastObject];
+    }
+    switch (indexPath.row) {
+        case 0:
+        {
+            [editPhotoCell.linkImageView setImage:[UIImage imageNamed:@"link7-2-2"]];
+            [editPhotoCell.linkName setText:@"毛线"];
+            [editPhotoCell.linkTextField setText:@"www.taobao.com（可选）"];
+        }
+            break;
+        case 1:
+        {
+            [editPhotoCell.linkImageView setImage:[UIImage imageNamed:@"link7-2-2"]];
+            [editPhotoCell.linkName setText:@"毛衣"];
+            [editPhotoCell.linkTextField setText:@"给标签添加站外链（可选）"];
+        }
+            break;
+        default:
+            break;
+    }
+    return editPhotoCell;
+}
+
+#pragma mark -按钮点击事件处理
+//返回按钮点击事件
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//点击大图空白区域的事件处理
+-(void)touchImageView:(id)sender
+{
+    CustomLabelViewController *customLabelViewCtrl = [[CustomLabelViewController alloc] initWithNibName:@"CustomLabelViewController" bundle:nil];
+    [self.navigationController pushViewController:customLabelViewCtrl animated:YES];
+}
+
+//下一步按钮点击
+- (IBAction)nextBtnClick:(id)sender {
+    PublishViewController *publishViewCtrl = [[PublishViewController alloc] initWithNibName:@"PublishViewController" bundle:nil];
+    [self.navigationController pushViewController:publishViewCtrl animated:YES];
+}
+
+@end

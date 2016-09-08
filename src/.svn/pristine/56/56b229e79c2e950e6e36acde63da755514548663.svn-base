@@ -1,0 +1,129 @@
+//
+//  PersonMainPageViewController.m
+//  mxj
+//  P9-0个人主页
+//  Created by 齐乐乐 on 15/11/19.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "PersonMainPageViewController.h"
+#import "PrivateMessageViewController.h"
+#import "PersonDocViewController.h"
+#import "MeFansViewController.h"
+#import "ConcernManViewController.h"
+
+@interface PersonMainPageViewController ()
+
+@end
+
+@implementation PersonMainPageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    //设置瀑布流
+    [self setSelfWaterView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark -按钮点击事件处理
+//返回按钮点击事件
+- (IBAction)backBtnClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+//更多按钮点击事件
+- (IBAction)moreBtnClick:(id)sender {
+    //TODO
+}
+
+//私信按钮点击事件
+- (IBAction)messageBtnClick:(id)sender {
+    PrivateMessageViewController *privateMessageViewCtrl = [[PrivateMessageViewController alloc] initWithNibName:@"PrivateMessageViewController" bundle:nil];
+    [self.navigationController pushViewController:privateMessageViewCtrl animated:YES];
+}
+
+//用户头像点击事件
+- (IBAction)userImageClick:(id)sender {
+    PersonDocViewController *personDocViewCtrl = [[PersonDocViewController alloc] initWithNibName:@"PersonDocViewController" bundle:nil];
+    [self.navigationController pushViewController:personDocViewCtrl animated:YES];
+}
+
+//关注按钮点击事件
+- (IBAction)guanZhuBtnClick:(id)sender {
+    //变为
+}
+
+//粉丝按钮点击事件
+- (IBAction)fensiBtnClick:(id)sender {
+    MeFansViewController *meFansViewCtrl = [[MeFansViewController alloc] initWithNibName:@"MeFansViewController" bundle:nil];
+    [self.navigationController pushViewController:meFansViewCtrl animated:YES];
+}
+
+//关注按钮点击事件
+- (IBAction)concertManBtnClick:(id)sender {
+    ConcernManViewController *concernManViewCtrl = [[ConcernManViewController alloc] initWithNibName:@"ConcernManViewController" bundle:nil];
+    [self.navigationController pushViewController:concernManViewCtrl animated:YES];
+}
+
+#pragma mark -共通方法
+//设置瀑布流
+-(void)setSelfWaterView
+{
+    //解析数据
+    NSString *path = [[NSBundle mainBundle]pathForResource:@"Data" ofType:@"json"];
+    NSString *string = [[NSString alloc]initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSArray *array = [string objectFromJSONString];
+    NSMutableArray *arrayImage = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i<[array count]; i++) {
+        NSDictionary *dataD = [array objectAtIndex:i];
+        if (dataD) {
+            ImageInfo *imageInfo = [[ImageInfo alloc] initWithDictionary:dataD];
+            [arrayImage addObject:imageInfo];
+        }
+    }
+    NSLog(@"%@", arrayImage);
+    
+    self.waterView = [[ImageWaterView alloc] initWithDataArray:arrayImage withFrame:CGRectMake(0, 260, 320, 308) intoFlag:0];
+    
+    
+    //添加上拉加载更多
+    __weak PersonMainPageViewController *blockSelf = self;
+    [self.waterView addInfiniteScrollingWithActionHandler:^{
+        NSLog(@"上拉刷新");
+        //使用GCD开启一个线程，使圈圈转2秒
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [blockSelf.waterView loadNextPage:arrayImage intoFlag:0];
+            [blockSelf.waterView.infiniteScrollingView stopAnimating];
+        });
+    }];
+    //添加下拉刷新
+    [self.waterView addPullToRefreshWithActionHandler:^{
+        NSLog(@"下拉更新");
+        //使用GCD开启一个线程，使圈圈转2秒
+        int64_t delayInSeconds = 1.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [blockSelf.waterView refreshView:arrayImage intoFlag:0];
+            [blockSelf.waterView.pullToRefreshView stopAnimating];
+        });
+    }];
+    [self.view addSubview:self.waterView];
+}
+
+@end

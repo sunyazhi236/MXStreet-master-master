@@ -1,0 +1,87 @@
+//
+//  LabelListViewController.m
+//  mxj
+//  P7-1-2标签列表页
+//  Created by 齐乐乐 on 15/11/18.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "LabelListViewController.h"
+#import "LabelListTableCell.h"
+
+@interface LabelListViewController ()
+
+@end
+
+@implementation LabelListViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.labelListTableView.delegate = self;
+    self.labelListTableView.dataSource = self;
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationItem setTitle:@"标签名"];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -TableView代理方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //TODO 根据获取的数据进行设置
+    return 5;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return 50;
+            break;
+        case 1:
+            return 185;
+            break;
+        default:
+            break;
+    }
+    return 180;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return self.labelListOneCell;
+            break;
+        case 1:
+            return self.labelListTwoCell;
+        default:
+        {
+            LabelListTableCell *labelListTableCell = [tableView dequeueReusableCellWithIdentifier:@"LabelListTableCell"];
+            if (!labelListTableCell) {
+                labelListTableCell = [[[NSBundle mainBundle] loadNibNamed:@"LabelListTableCell" owner:self options:nil] lastObject];
+            }
+            return labelListTableCell;
+        }
+            break;
+    }
+    return [[UITableViewCell alloc] init];
+}
+
+#pragma mark -按钮点击事件
+//点赞
+- (IBAction)zanBtnClick:(id)sender {
+    UIButton *zanBtn = (UIButton *)sender;
+    [zanBtn setBackgroundImage:[UIImage imageNamed:@"zan02-7-1-2"] forState:UIControlStateNormal];
+}
+
+
+@end

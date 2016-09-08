@@ -1,0 +1,13 @@
+//
+//  PrivateMessageTableCell.h
+//  mxj
+//  私信用Cell头文件
+//  Created by 齐乐乐 on 15/11/13.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface PrivateMessageTableCell : UITableViewCell
+
+@end

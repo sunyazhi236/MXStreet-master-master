@@ -1,0 +1,111 @@
+//
+//  LoginViewController.m
+//  mxj
+//  P5登录实现文件
+//  Created by 齐乐乐 on 15/11/10.
+//  Copyright © 2015年 bluemobi. All rights reserved.
+//
+
+#import "LoginViewController.h"
+#import "ValidatePhoneNoViewController.h"
+#import "MainPageTabBarController.h"
+
+@interface LoginViewController ()
+
+@end
+
+@implementation LoginViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    //显示navigationBar
+    [self.navigationController setNavigationBarHidden:NO];
+    //设置导航栏标题
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSFontAttributeName:[UIFont systemFontOfSize:17],
+       NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"top"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationItem setTitle:@"登录"];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -按钮点击事件处理
+//忘记密码按钮点击事件
+- (IBAction)forgetPassBtnClick:(id)sender {
+    //弹出输入手机号码对话框
+    [self displayForgetPassAlertView];
+}
+
+//登录按钮点击事件
+- (IBAction)loginBtnClick:(id)sender {
+    //跳转至主页
+    MainPageTabBarController *mainPageViewCtrl = [[MainPageTabBarController alloc] initWithNibName:@"MainPageTabBarController" bundle:nil];
+    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController pushViewController:mainPageViewCtrl animated:YES];
+}
+
+//QQ登录按钮点击事件
+- (IBAction)qqBtnClick:(id)sender {
+    //TODO
+}
+
+//微信登录按钮点击事件
+- (IBAction)weixinBtnClick:(id)sender {
+    //TODO
+}
+
+//新浪登录按钮点击事件
+- (IBAction)xinlangBtnClick:(id)sender {
+    //TODO
+}
+
+#pragma mark -共通方法
+//弹出忘记密码输入手机号对话框
+-(void)displayForgetPassAlertView
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"忘记密码" message:@"请输入你的手机号码" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
+        textField.placeholder = @"手机号码";
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        //读取输入的手机号码
+        //UITextField *phoneNoTextFiled = alertController.textFields.firstObject;
+        //弹出确认手机号对话框
+        [self displayConfirmAlertView];
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+//弹出确认手机号对话框
+-(void)displayConfirmAlertView
+{
+    UIAlertController *confirmPhoneNoAlertCtrl = [UIAlertController alertControllerWithTitle:@"确认手机号码" message:@"我们将发送验证码到该手机\n+8618516713700" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *modifyAction = [UIAlertAction actionWithTitle:@"修改" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        //跳转至忘记密码手机号输入对话框
+        [self displayForgetPassAlertView];
+    }];
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        //点击确认时的处理，跳转至验证手机号界面 TODO
+        ValidatePhoneNoViewController *validatePhoneNoViewCtrl = [[ValidatePhoneNoViewController alloc] initWithNibName:@"ValidatePhoneNoViewController" bundle:nil];
+        validatePhoneNoViewCtrl.intoFlag = 1; //从忘记密码入口进入
+        [self.navigationController pushViewController:validatePhoneNoViewCtrl animated:YES];
+        
+    }];
+    [confirmPhoneNoAlertCtrl addAction:modifyAction];
+    [confirmPhoneNoAlertCtrl addAction:confirmAction];
+    [self presentViewController:confirmPhoneNoAlertCtrl animated:YES completion:nil];
+}
+
+@end

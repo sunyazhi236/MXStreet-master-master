@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OwnAreaViewController">
+            <connections>
+                <outlet property="chinaTableCell" destination="Rnf-Vb-tDd" id="y2y-EA-UGQ"/>
+                <outlet property="overSeaTableCell" destination="QmF-r3-Hcl" id="LTJ-mK-eJV"/>
+                <outlet property="ownAreaTableView" destination="GBt-YR-0vK" id="TPn-UP-WSX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="nXz-Fd-4Lk">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <animations/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    </variation>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GBt-YR-0vK">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="10" width="320" height="435"/>
+                    </variation>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nby-aq-uGg">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <animations/>
+                    <state key="normal" title="取消" backgroundImage="btn02_12_1_3">
+                        <color key="titleColor" red="0.71764705880000002" green="0.023529411760000001" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelBtnClick:" destination="-1" eventType="touchUpInside" id="A8K-34-TKA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIZ-Av-1mI">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <animations/>
+                    <state key="normal" title="完成" backgroundImage="btn_12_1_3">
+                        <color key="titleColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="completeBtnClick:" destination="-1" eventType="touchUpInside" id="M9I-WC-Cej"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rIZ-Av-1mI" secondAttribute="bottom" constant="22" id="1zU-Vs-6SA"/>
+                <constraint firstItem="nby-aq-uGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="ZAE-v9-FEr"/>
+                <constraint firstAttribute="trailing" secondItem="rIZ-Av-1mI" secondAttribute="trailing" constant="57" id="gSM-tC-JYj"/>
+                <constraint firstAttribute="bottom" secondItem="nby-aq-uGg" secondAttribute="bottom" constant="22" id="mNy-G9-cB5"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="nXz-Fd-4Lk"/>
+                    <exclude reference="GBt-YR-0vK"/>
+                    <exclude reference="nby-aq-uGg"/>
+                    <exclude reference="rIZ-Av-1mI"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="ZAE-v9-FEr"/>
+                    <exclude reference="mNy-G9-cB5"/>
+                    <exclude reference="1zU-Vs-6SA"/>
+                    <exclude reference="gSM-tC-JYj"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="nXz-Fd-4Lk"/>
+                    <include reference="GBt-YR-0vK"/>
+                    <include reference="nby-aq-uGg"/>
+                    <include reference="rIZ-Av-1mI"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="ZAE-v9-FEr"/>
+                    <include reference="mNy-G9-cB5"/>
+                    <include reference="1zU-Vs-6SA"/>
+                    <include reference="gSM-tC-JYj"/>
+                </mask>
+            </variation>
+        </view>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Rnf-Vb-tDd">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rnf-Vb-tDd" id="h39-LN-GEN">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row_12_1_3" translatesAutoresizingMaskIntoConstraints="NO" id="xk3-Bh-bBx">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
+                        <variation key="widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        </variation>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_12_1_3" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-A4-guw">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
+                        <variation key="widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="10" y="43" width="300" height="1"/>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0z-fm-nyj">
+                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="8" y="11" width="34" height="21"/>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_12_1_3" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-5K-onG">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
+                        <variation key="widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="303" y="14" width="9" height="16"/>
+                        </variation>
+                    </imageView>
+                </subviews>
+                <animations/>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="xk3-Bh-bBx"/>
+                        <exclude reference="eTP-A4-guw"/>
+                        <exclude reference="Y0z-fm-nyj"/>
+                        <exclude reference="6oG-5K-onG"/>
+                    </mask>
+                </variation>
+                <variation key="widthClass=compact">
+                    <mask key="subviews">
+                        <include reference="xk3-Bh-bBx"/>
+                        <include reference="eTP-A4-guw"/>
+                        <include reference="Y0z-fm-nyj"/>
+                        <include reference="6oG-5K-onG"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="661" y="116"/>
+        </tableViewCell>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QmF-r3-Hcl">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QmF-r3-Hcl" id="pkU-bT-tLC">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="row_12_1_3" translatesAutoresizingMaskIntoConstraints="NO" id="l6p-c0-Grm">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
+                        <variation key="widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="海外" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIC-dg-rQd">
+                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="8" y="11" width="34" height="21"/>
+                        </variation>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_12_1_3" translatesAutoresizingMaskIntoConstraints="NO" id="LeV-Id-Npl">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
+                        <variation key="widthClass=compact" fixedFrame="YES">
+                            <rect key="frame" x="303" y="14" width="9" height="16"/>
+                        </variation>
+                    </imageView>
+                </subviews>
+                <animations/>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="l6p-c0-Grm"/>
+                        <exclude reference="UIC-dg-rQd"/>
+                        <exclude reference="LeV-Id-Npl"/>
+                    </mask>
+                </variation>
+                <variation key="widthClass=compact">
+                    <mask key="subviews">
+                        <include reference="l6p-c0-Grm"/>
+                        <include reference="UIC-dg-rQd"/>
+                        <include reference="LeV-Id-Npl"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="661" y="217"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow_12_1_3" width="9" height="16"/>
+        <image name="bg" width="640" height="1136"/>
+        <image name="btn02_12_1_3" width="75" height="26"/>
+        <image name="btn_12_1_3" width="75" height="26"/>
+        <image name="line_12_1_3" width="1" height="1"/>
+        <image name="row_12_1_3" width="320" height="44"/>
+    </resources>
+</document>
