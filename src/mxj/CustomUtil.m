@@ -580,7 +580,7 @@ static NSString *openId = nil; //腾讯登录openId
                         [[NSUserDefaults standardUserDefaults] setObject:tagArray forKey:@"tagArray"];
                         [[NSUserDefaults standardUserDefaults] synchronize];
                     }
-//                    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+                    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
                     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerPushDelay:) userInfo:tagArray repeats:NO];
                     
                     
@@ -603,6 +603,7 @@ static NSString *openId = nil; //腾讯登录openId
 - (void)timerPushDelay:(NSTimer *)timer
 {
     [JPUSHService setTags:[NSSet setWithArray:timer.userInfo] callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+    [[UIApplication sharedApplication] endBackgroundTask:UIBackgroundTaskInvalid];
 }
 
 //- (void)pushDelay:(NSArray *)tagArray
@@ -910,7 +911,7 @@ static NSString *openId = nil; //腾讯登录openId
                                 [[NSUserDefaults standardUserDefaults] setObject:tagArray forKey:@"tagArray"];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
                             }
-//                            [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+                            [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
                             
                             [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerPushDelay:) userInfo:tagArray repeats:NO];
                             //跳转至首页

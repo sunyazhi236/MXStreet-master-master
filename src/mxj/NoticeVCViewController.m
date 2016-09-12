@@ -69,14 +69,11 @@ static NoticeVCViewController *_singleManager = nil;
     
     [btnArray enumerateObjectsUsingBlock:^(UISwitch *btn, NSUInteger idx, BOOL * _Nonnull stop) {
         btn.tag = 1001 + idx;
-//        [btn setBackgroundImage:[UIImage imageNamed:@"off_12"] forState:UIControlStateNormal];
-//        [btn setBackgroundImage:[UIImage imageNamed:@"on_12"] forState:UIControlStateSelected];
         if (![self.mTagArray containsObject:tagArray[idx]]) {
             btn.on = NO;
         } else {
             btn.on = YES;
         }
-//        [btn addTarget:self action:@selector(BtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [ btn addTarget: self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
     }];
 }
@@ -182,11 +179,10 @@ static NoticeVCViewController *_singleManager = nil;
     NSMutableSet *tagSet = [NSMutableSet setWithArray:self.mTagArray];
     [self.timer invalidate];
     self.index = 0;
-//    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(delayadTime:) userInfo:tagSet repeats:YES];
     [[NSUserDefaults standardUserDefaults] setObject:self.mTagArray forKey:@"tagArray"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-//    [userdefault synchronize];
 }
 
 -(void)tagsAliasCallback:(int)iResCode tags:(NSSet*)tags alias:(NSString*)alias
@@ -206,6 +202,7 @@ static NoticeVCViewController *_singleManager = nil;
     self.index++;
     if (self.index == 4) {
         [JPUSHService setTags:timer.userInfo callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+        [[UIApplication sharedApplication] endBackgroundTask:UIBackgroundTaskInvalid];
         [self.timer invalidate];
     }
 }

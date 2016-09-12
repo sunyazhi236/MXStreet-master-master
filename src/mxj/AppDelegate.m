@@ -168,7 +168,7 @@
                             [[NSUserDefaults standardUserDefaults] setObject:tagArray forKey:@"tagArray"];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                         }
-//                        [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+                        [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
                         [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerPushDelay:) userInfo:tagArray repeats:NO];
                         //跳转至主页
                         TabBarController *tabBarCtrl = [[TabBarController alloc] initWithNibName:@"TabBarController" bundle:nil];
@@ -407,15 +407,11 @@
 //    [self performSelector:@selector(pushDelay:) withObject:tagArray afterDelay:1];
 }
 
-- (void)pushDelay:(NSArray *)tagArray
-{
-    [JPUSHService setTags:[NSSet setWithArray:tagArray] callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-    
-}
-
 - (void)timerPushDelay:(NSTimer *)timer1
 {
     [JPUSHService setTags:[NSSet setWithArray:timer1.userInfo] callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+    [[UIApplication sharedApplication] endBackgroundTask:UIBackgroundTaskInvalid];
+
 }
 
 -(void)tagsAliasCallback:(int)iResCode
@@ -581,10 +577,19 @@
                         
                         for (UIViewController *vc in tabBarCtrl.viewControllers) {
                             if (vc.navigationController.viewControllers.count > 2) {
-                                [vc.navigationController popToViewController:vc.navigationController.viewControllers[1] animated:NO];
+                                NSInteger n = 1;
+                                for (UIViewController *childVC in vc.navigationController.viewControllers) {
+                                    if ([childVC isKindOfClass:[GuideViewController class]]) {
+                                        n = 2;
+                                        break;
+                                    } else {
+                                        n = 1;
+                                    }
+                                }
+                                [vc.navigationController popToViewController:vc.navigationController.viewControllers[n] animated:NO];
                             }
                         }
-                        
+//
                         MessageViewController *messageViewCtrl = [tabBarCtrl.viewControllers objectAtIndexCheck:3];
                         if ([type isEqualToString:@"3"]) {
                             [messageViewCtrl buttonClickWithType:0];
