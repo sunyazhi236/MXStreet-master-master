@@ -21,6 +21,7 @@
 @interface LoginVC () <UITextFieldDelegate>
 {
     Boolean isHidden;
+    UIBackgroundTaskIdentifier taskID;
 }
 
 @property (nonatomic, strong) UIImageView   *logoView;
@@ -352,7 +353,7 @@
                 [[NSUserDefaults standardUserDefaults] setObject:tagArray forKey:@"tagArray"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
             }
-            [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+            taskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
             [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerPushDelay:) userInfo:tagArray repeats:NO];
             //跳转至主页
             TabBarController *tabBarCtrl = [[TabBarController alloc] initWithNibName:@"TabBarController" bundle:nil];
@@ -396,7 +397,7 @@
 - (void)timerPushDelay:(NSTimer *)timer
 {
     [JPUSHService setTags:[NSSet setWithArray:timer.userInfo] callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-    [[UIApplication sharedApplication] endBackgroundTask:UIBackgroundTaskInvalid];
+    [[UIApplication sharedApplication] endBackgroundTask:taskID];
 }
 
 -(void)tagsAliasCallback:(int)iResCode

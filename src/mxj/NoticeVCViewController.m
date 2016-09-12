@@ -11,11 +11,15 @@
 static NoticeVCViewController *_singleManager = nil;
 
 @interface NoticeVCViewController ()
-
+{
+    UIBackgroundTaskIdentifier nowTaskID;
+}
 @property (nonatomic, strong)NSMutableArray *mTagArray;
 @property (nonatomic, strong)NSTimer *timer;
 @property (nonatomic, assign)NSInteger index;
 @property (nonatomic, strong)NSString *userId;
+
+
 @end
 
 @implementation NoticeVCViewController
@@ -179,8 +183,9 @@ static NoticeVCViewController *_singleManager = nil;
     NSMutableSet *tagSet = [NSMutableSet setWithArray:self.mTagArray];
     [self.timer invalidate];
     self.index = 0;
-    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(delayadTime:) userInfo:tagSet repeats:YES];
+    UIBackgroundTaskIdentifier taskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+    NSDictionary *dic = @{@"tagSet": tagSet, @"taskID": [NSNumber numberWithInteger:taskID]};
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(delayadTime:) userInfo:dic repeats:YES];
     [[NSUserDefaults standardUserDefaults] setObject:self.mTagArray forKey:@"tagArray"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -193,16 +198,19 @@ static NoticeVCViewController *_singleManager = nil;
         [JPUSHService setTags:[NSSet setWithArray:self.mTagArray] callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
     } else {
         NSLog(@"设置成功");
-        
+        [[UIApplication sharedApplication] endBackgroundTask:nowTaskID];
     }
 }
 
 - (void)delayadTime:(NSTimer *)timer
 {
+    NSLog(@"%ld", _index);
     self.index++;
     if (self.index == 4) {
-        [JPUSHService setTags:timer.userInfo callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-        [[UIApplication sharedApplication] endBackgroundTask:UIBackgroundTaskInvalid];
+        [JPUSHService setTags:timer.userInfo[@"tagSet"] callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
+//        [JPUSHService setTags:timer.userInfo[@"tagSet"] aliasInbackground:nil];
+//        [[UIApplication sharedApplication] endBackgroundTask:[timer.userInfo[@"taskID"] integerValue]];
+        nowTaskID = [timer.userInfo[@"taskID"] integerValue];
         [self.timer invalidate];
     }
 }

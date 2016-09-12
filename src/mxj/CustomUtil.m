@@ -16,7 +16,14 @@
 
 #define LOADING_VIEW_TEXT                   @"加载中..."
 
+@interface CustomUtil ()
+{
+    UIBackgroundTaskIdentifier taskID;
+}
+@end
+
 @implementation CustomUtil
+
 
 // ProgressHUD使用
 static MBProgressHUD * _loadingHUD;
@@ -580,9 +587,8 @@ static NSString *openId = nil; //腾讯登录openId
                         [[NSUserDefaults standardUserDefaults] setObject:tagArray forKey:@"tagArray"];
                         [[NSUserDefaults standardUserDefaults] synchronize];
                     }
-                    [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+                    taskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
                     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerPushDelay:) userInfo:tagArray repeats:NO];
-                    
                     
                     //跳转至首页
                     TabBarController *tabBarCtrl = [[TabBarController alloc] initWithNibName:@"TabBarController" bundle:nil];
@@ -603,7 +609,7 @@ static NSString *openId = nil; //腾讯登录openId
 - (void)timerPushDelay:(NSTimer *)timer
 {
     [JPUSHService setTags:[NSSet setWithArray:timer.userInfo] callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-    [[UIApplication sharedApplication] endBackgroundTask:UIBackgroundTaskInvalid];
+    [[UIApplication sharedApplication] endBackgroundTask:taskID];
 }
 
 //- (void)pushDelay:(NSArray *)tagArray
@@ -911,7 +917,7 @@ static NSString *openId = nil; //腾讯登录openId
                                 [[NSUserDefaults standardUserDefaults] setObject:tagArray forKey:@"tagArray"];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
                             }
-                            [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+                            taskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
                             
                             [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerPushDelay:) userInfo:tagArray repeats:NO];
                             //跳转至首页
@@ -1300,7 +1306,7 @@ static NSString *openId = nil; //腾讯登录openId
                                 [[NSUserDefaults standardUserDefaults] setObject:tagArray forKey:@"tagArray"];
                                 [[NSUserDefaults standardUserDefaults] synchronize];
                             }
-//                            [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+                            taskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
                             [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerPushDelay:) userInfo:tagArray repeats:NO];
                             //跳转至首页
                             

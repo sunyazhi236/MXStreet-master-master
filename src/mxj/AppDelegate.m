@@ -29,6 +29,8 @@
 {
     NSTimer *timer; //密码修改监听用定时器
     NSTimer *messageTimer; //是否收到消息的监听定时器
+    UIBackgroundTaskIdentifier  taskID;
+    
 }
 @end
 
@@ -168,7 +170,7 @@
                             [[NSUserDefaults standardUserDefaults] setObject:tagArray forKey:@"tagArray"];
                             [[NSUserDefaults standardUserDefaults] synchronize];
                         }
-                        [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+                        taskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
                         [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerPushDelay:) userInfo:tagArray repeats:NO];
                         //跳转至主页
                         TabBarController *tabBarCtrl = [[TabBarController alloc] initWithNibName:@"TabBarController" bundle:nil];
@@ -410,7 +412,9 @@
 - (void)timerPushDelay:(NSTimer *)timer1
 {
     [JPUSHService setTags:[NSSet setWithArray:timer1.userInfo] callbackSelector:@selector(tagsAliasCallback:tags:alias:) object:self];
-    [[UIApplication sharedApplication] endBackgroundTask:UIBackgroundTaskInvalid];
+    
+    [[UIApplication sharedApplication] endBackgroundTask:taskID];
+//    [self endba]
 
 }
 
@@ -436,6 +440,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//    [[UIApplication sharedApplication] endBackgroundTask:UIBackgroundTaskInvalid];
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
