@@ -5267,8 +5267,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pengsheng Han (PZ4QGA43TP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengsheng Han (PZ4QGA43TP)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xingtai Lotus Cashmere Co.,Ltd (689W93QUFY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xingtai Lotus Cashmere Co.,Ltd (689W93QUFY)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -5290,7 +5290,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "c94aa3df-7de4-46d4-8d52-8247f597ec32";
+				PROVISIONING_PROFILE = "7e4b2612-35e2-461b-9e3a-de2e716e5a69";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -5312,8 +5312,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pengsheng Han (PZ4QGA43TP)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengsheng Han (PZ4QGA43TP)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xingtai Lotus Cashmere Co.,Ltd (689W93QUFY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xingtai Lotus Cashmere Co.,Ltd (689W93QUFY)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -5328,7 +5328,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "c94aa3df-7de4-46d4-8d52-8247f597ec32";
+				PROVISIONING_PROFILE = "7e4b2612-35e2-461b-9e3a-de2e716e5a69";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -5339,8 +5339,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xingtai Lotus Cashmere Co.,Ltd (689W93QUFY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xingtai Lotus Cashmere Co.,Ltd (689W93QUFY)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5365,7 +5365,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlueMobi.mxj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7e4b2612-35e2-461b-9e3a-de2e716e5a69";
 			};
 			name = Debug;
 		};
@@ -5374,8 +5374,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Xingtai Lotus Cashmere Co.,Ltd (689W93QUFY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xingtai Lotus Cashmere Co.,Ltd (689W93QUFY)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5400,7 +5400,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlueMobi.mxj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7e4b2612-35e2-461b-9e3a-de2e716e5a69";
 			};
 			name = Release;
 		};
