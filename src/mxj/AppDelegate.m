@@ -568,12 +568,13 @@
      */
     NSLog(@"%@", userInfo);
     NSString *type = [userInfo objectForKey:@"type"];
+    NSString *isnotify=[userInfo objectForKey:@"isnotify"];
     if (UIApplicationStateActive == application.applicationState) {
         DLog(@"应用进入前台");
     } else if(UIApplicationStateInactive == application.applicationState) {
         if (![CustomUtil CheckParam:[LoginModel shareInstance].userId]) {
 
-            if (![type isEqualToString:@"2"] && ![type isEqualToString:@"8"] && ![type isEqualToString:@"6"] && ![type isEqualToString:@"5"] && ![type isEqualToString:@"1"]) {
+            if (![type isEqualToString:@"2"] && ![type isEqualToString:@"6"] && ![type isEqualToString:@"5"] && ![type isEqualToString:@"1"]) {
                 //跳转至通知列表或私信列表界面
                 for (UIViewController *viewCtrl in [(UINavigationController *)_window.rootViewController viewControllers]) {
                     if ([viewCtrl isKindOfClass:[TabBarController class]]) {
@@ -606,7 +607,32 @@
                         }
                     }
                 }
-            } else if ([type isEqualToString:@"8"] || [type isEqualToString:@"1"]) {
+            }   else if ([type isEqualToString:@"1"]&&[isnotify isEqualToString:@"true"]){
+                for (UIViewController *viewCtrl in [(UINavigationController *)_window.rootViewController viewControllers]) {
+                    if ([viewCtrl isKindOfClass:[TabBarController class]]) {
+                        TabBarController *tabBarCtrl = (TabBarController *)viewCtrl;
+                        [tabBarCtrl setSelectedIndex:3];
+                        tabBarCtrl.intoStreetFlag = 3;
+                        for (UIViewController *vc in tabBarCtrl.viewControllers) {
+                            if (vc.navigationController.viewControllers.count > 2) {
+                                NSInteger n = 1;
+                                for (UIViewController *childVC in vc.navigationController.viewControllers) {
+                                    if ([childVC isKindOfClass:[GuideViewController class]]) {
+                                        n = 2;
+                                        break;
+                                    } else {
+                                        n = 1;
+                                    }
+                                }
+                                [vc.navigationController popToViewController:vc.navigationController.viewControllers[n] animated:NO];
+                            }
+                        }
+                        MessageViewController *messageViewCtrl = [tabBarCtrl.viewControllers objectAtIndexCheck:3];
+                        [messageViewCtrl buttonClickWithType:3];
+                    }
+                }
+            }
+            else if ([type isEqualToString:@"1"]) {
                 //跳首页
                 for (UIViewController *viewCtrl in [(UINavigationController *)_window.rootViewController viewControllers]) {
                     if ([viewCtrl isKindOfClass:[TabBarController class]]) {
@@ -615,7 +641,16 @@
                         tabBarCtrl.intoStreetFlag = 2;
                         for (UIViewController *vc in tabBarCtrl.viewControllers) {
                             if (vc.navigationController.viewControllers.count > 2) {
-                                [vc.navigationController popToViewController:vc.navigationController.viewControllers[1] animated:NO];
+                                NSInteger n = 1;
+                                for (UIViewController *childVC in vc.navigationController.viewControllers) {
+                                    if ([childVC isKindOfClass:[GuideViewController class]]) {
+                                        n = 2;
+                                        break;
+                                    } else {
+                                        n = 1;
+                                    }
+                                }
+                                [vc.navigationController popToViewController:vc.navigationController.viewControllers[n] animated:NO];
                             }
                         }
                         MainPageTabBarController *mainPageTabBarController = [tabBarCtrl.viewControllers objectAtIndexCheck:0];
