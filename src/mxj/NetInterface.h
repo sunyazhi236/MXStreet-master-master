@@ -15,12 +15,12 @@
 //#define DEV_BASE_URL @"112.64.173.178/maoxj/appUser/manager"           //基地址（外网）
 
 //-------------------- 发布地址 -------------------------------------------------------------------
-#define BASE_URL @"http://www.maoxianjie.cn" //基地址
-#define NET_BASE_URL @"www.maoxianjie.cn" //基地址
-#define TEST_BASE_URL @"www.maoxianjie.cn/maoxj/appUser/manager"             //基地址（appUser用）
-#define TEST_BASE_URL_FOR_MESSAGE @"www.maoxianjie.cn/maoxj/message"         //基地址（message用）
-#define TEST_BASE_URL_FOR_SNAP @"www.maoxianjie.cn/maoxj/streetsnap/manager" //基地址（streetsnap用）
-#define DEV_BASE_URL @"www.maoxianjie.cn/maoxj/appUser/manager"           //基地址（外网）
+//#define BASE_URL @"http://www.maoxianjie.cn" //基地址
+//#define NET_BASE_URL @"www.maoxianjie.cn" //基地址
+//#define TEST_BASE_URL @"www.maoxianjie.cn/maoxj/appUser/manager"             //基地址（appUser用）
+//#define TEST_BASE_URL_FOR_MESSAGE @"www.maoxianjie.cn/maoxj/message"         //基地址（message用）
+//#define TEST_BASE_URL_FOR_SNAP @"www.maoxianjie.cn/maoxj/streetsnap/manager" //基地址（streetsnap用）
+//#define DEV_BASE_URL @"www.maoxianjie.cn/maoxj/appUser/manager"           //基地址（外网）
 
 //-------------------- 发布地址 -------------------------------------------------------------------
 //#define BASE_URL @"http://123.57.177.128:8080" //基地址
@@ -33,12 +33,12 @@
 //192.168.1.115:8181    115便于本地测试
 //-------------------- 测试服务器(调试用) -------------------------------------------------------------------
 #warning shanpengtao_test
-//#define BASE_URL @"http://123.57.152.239:8080" //基地址
-//#define NET_BASE_URL @"123.57.152.239:8080" //基地址
-//#define TEST_BASE_URL @"123.57.152.239:8080/maoxj/appUser/manager"             //基地址（appUser用）
-//#define TEST_BASE_URL_FOR_MESSAGE @"123.57.152.239:8080/maoxj/message"         //基地址（message用）
-//#define TEST_BASE_URL_FOR_SNAP @"123.57.152.239:8080/maoxj/streetsnap/manager" //基地址（streetsnap用）
-//#define DEV_BASE_URL @"123.57.152.239:8080/maoxj/appUser/manager"           //基地址（外网）
+#define BASE_URL @"http://123.57.152.239:8080" //基地址
+#define NET_BASE_URL @"123.57.152.239:8080" //基地址
+#define TEST_BASE_URL @"123.57.152.239:8080/maoxj/appUser/manager"             //基地址（appUser用）
+#define TEST_BASE_URL_FOR_MESSAGE @"123.57.152.239:8080/maoxj/message"         //基地址（message用）
+#define TEST_BASE_URL_FOR_SNAP @"123.57.152.239:8080/maoxj/streetsnap/manager" //基地址（streetsnap用）
+#define DEV_BASE_URL @"123.57.152.239:8080/maoxj/appUser/manager"           //基地址（外网）
 
 //-------------------- 花生壳(调试用) -------------------------------------------------------------------
 //#define BASE_URL @"http://15e2091z08.imwork.net:14780" //基地址
